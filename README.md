@@ -1,3 +1,3 @@
 # Hold24
 ###### **Kravsspecifikation**
-Dette er mig
+Dette er mig og jeg er sej
