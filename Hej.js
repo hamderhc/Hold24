@@ -1,6 +1,7 @@
 //hej med dig
 
 function hei () {
-    var test = 1;
+    var test = 3;
+
 
 }
