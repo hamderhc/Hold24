@@ -64,7 +64,7 @@ Når dette er gjort fortsætter kunden købet ved at trykke på knappen “Vider
     - Email
 
 ## Klassediagram
-[!alt text](diagram/klassediagram.jpg?raw=true "klassediagram")
+![Alt text](diagram/klassediagram.jpg?raw=true "klassediagram")
 
 
 
