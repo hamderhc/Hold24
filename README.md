@@ -65,7 +65,7 @@ Når dette er gjort fortsætter kunden købet ved at trykke på knappen “Vider
     - hej
 
 ## Klassediagram
-![Alt text](diagram/klassediagram2.jpg?raw=true "klassediagram")
+![Alt text](billeder/klassediagram2.jpg?raw=true "klassediagram")
 
 
 
