@@ -1,12 +1,13 @@
 /* Baggrundsbillede */
-body {
-    background: url(../../billeder/lineStanders.jpg) no-repeat;
-    background-size: cover;
-    margin: 0;
+#queue {
+    background: url(../../billeder/queue.jpg) no-repeat;
+    background-size: 200%;
+    margin: 5%;
+
 }
 
 /* logo */
-img{
+#logo {
     vertical-align: top;
     margin-left: 40%;
     margin-top: 10px;

@@ -1,4 +1,6 @@
-
+body {
+    margin: 0;
+}
 /* logo */
 img{
     vertical-align: top;
@@ -101,4 +103,11 @@ ul li:hover ul li {
     background: burlywood;
     border-radius: 40px;
     padding: 0.60%;
+}
+
+#festival {
+    font-size: 175%;
+    text-align: center;
+    font-family: "Quicksand", sans-serif;
+    margin-top: 1%;
 }
