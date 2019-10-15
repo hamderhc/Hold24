@@ -1,0 +1,103 @@
+
+/* logo */
+img{
+    vertical-align: top;
+    margin-left: 40%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 20%;
+}
+
+/* navigationsbar */
+.menu {
+    width: 100%;
+    height: 60px;
+    background-color: indianred;
+    opacity: .8;
+    line-height: 60px;
+    text-align: center;
+    font-size: 20px;
+}
+ul {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+ul li {
+    float: left;
+    width: 200px;
+    height: 40px;
+}
+ul li a {
+    text-decoration: none;
+    color: burlywood;
+    display: block;
+}
+ul li a:hover {
+    background-color: white;
+}
+ul li ul li {
+    display: none;
+    background-color: indianred;
+    opacity: .7;
+}
+ul li:hover ul li {
+    display: block;
+}
+
+/* søgefunktion */
+.search-box {
+    /*position: absolute;*/
+    margin-top: 0.5%;
+    margin-right: 5%;
+    left: 87.5%;
+    float: right;
+    /*transform: translate(-50%,-50%);*/
+    background: burlywood;
+    border-radius: 40px;
+    padding: 0.25%;
+}
+.search-box:hover > .search-txt{
+    width: 240px;
+    padding: 0 6px;
+}
+.search-box:hover > .search-btn{
+    background: white;
+}
+
+.search-btn {
+    color: indianred;
+    float: right;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: burlywood;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s;
+}
+
+.search-txt{
+    border: none;
+    background: none;
+    outline: none;
+    float: left;
+    padding: 0;
+    color: black;
+    font-size: 16px;
+    transition: 0.4s;
+    line-height: 40px;
+    width: 0px;
+}
+
+/* Kurv */
+.kurv {
+    margin-top: 0.5%;
+    margin-right: 0.5%;
+    float: right;
+    /*transform: translate(-50%,-50%);*/
+    background: burlywood;
+    border-radius: 40px;
+    padding: 0.60%;
+}

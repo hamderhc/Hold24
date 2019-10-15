@@ -2,36 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Skip the Line</title>
-    <link rel="stylesheet" type="text/css" href="css_index/style_index.css">
+    <title>Skip The Line</title>
+    <link rel="stylesheet" type="text/css" href="css_index/style_index.css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 </head>
 <body>
 
-<!-- billede logo, dummy -->
-<img src="../billeder/logoSTL.png" id="logo">
-
-
+<!-- billede logo -->
+<a href="index.html"><img src="../billeder/logoSTL.png" id="logo"></a>
 
 
 <!-- navigationsbar -->
-
 <div class="menu">
 <nav>
 <ul>
-        <li> <a href="">Linestander</a>
+        <li> <a href="">Login</a>
             <ul>
-                <li> <a href="">Festival</a></li>
-                <li> <a href="">Shop</a></li>
+                <li> <a href="">Login</a></li>
+                <li> <a href="">Opret bruger</a></li>
             </ul>
         </li>
-    <li> <a href="">Login</a>
-        <ul>
-            <li> <a href="">Login</a></li>
-            <li> <a href="">Opret bruger</a></li>
-        </ul>
-    </li>
-    <li> <a href="">Kurv</a></li>
+        <li> <a href="">Linestander</a>
+             <ul>
+                 <li> <a href="../festival/festival.html">Festival</a></li>
+                 <li> <a href="../shop/shop.html">Shop</a></li>
+             </ul>
+        </li>
 </ul>
     <form class="search-box">
         <input class="search-txt" type="text" name="" placeholder="Type to search">
@@ -40,12 +36,9 @@
             <i class="fas fa-search"></i>
         </a>
     </form>
-
+    <button class="kurv" style="font-size:24px; color: indianred" onclick="window.location.href='kurv_index/kurv.html'"><i class="fa fa-shopping-cart"></i></button>
 </nav>
 </div>
-
-
-
 
 </body>
 </html>
