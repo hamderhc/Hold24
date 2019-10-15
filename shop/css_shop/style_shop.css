@@ -106,3 +106,9 @@ ul li:hover ul li {
     border-radius: 40px;
     padding: 0.60%;
 }
+#shop {
+    text-align: center;
+    font-family: "Quicksand", sans-serif;
+    margin-top: 1%;
+    font-size: 23px;
+}

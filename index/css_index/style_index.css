@@ -1,9 +1,15 @@
+body {
+    margin: 0;
+}
+
 /* Baggrundsbillede */
 #queue {
-    background: url(../../billeder/queue.jpg) no-repeat;
-    background-size: 200%;
-    margin: 5%;
-
+    margin-top: 4%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    opacity: .8;
 }
 
 /* logo */
@@ -13,6 +19,15 @@
     margin-top: 10px;
     margin-bottom: 10px;
     width: 20%;
+}
+
+/* how it works billede */
+#howItWorks {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 4%;
+    width: 90%;
 }
 
 /* navigationsbar */
@@ -45,7 +60,6 @@ ul li a {
 ul li a:hover {
     color: white;
     font-weight: bold;
-
 }
 ul li ul li {
     display: none;
@@ -110,4 +124,34 @@ ul li:hover ul li {
     background: burlywood;
     border-radius: 40px;
     padding: 0.60%;
+    color: indianred;
+}
+.kurv:hover {
+    color: white;
+}
+h2 {
+    font-family: "Quicksand", sans-serif;
+    text-align: center;
+    font-size: 35px;
+    font-weight: bold;
+    color: burlywood;
+    margin-top: 8.5%;
+    margin-right: 4%;
+    margin-left: 4%;
+    opacity: 0.9;
+}
+
+
+h1 {
+    display: block;
+    background-color: indianred;
+    font-family: "Quicksand", sans-serif;
+    text-align: center;
+    font-size: 35px;
+    font-weight: bold;
+    color: burlywood;
+    margin-top: 8.5%;
+    margin-right: 4%;
+    margin-left: 4%;
+    opacity: 0.9;
 }

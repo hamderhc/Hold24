@@ -2,7 +2,7 @@ body {
     margin: 0;
 }
 /* logo */
-img{
+#logo {
     vertical-align: top;
     margin-left: 40%;
     margin-top: 10px;
@@ -106,8 +106,20 @@ ul li:hover ul li {
 }
 
 #festival {
-    font-size: 175%;
     text-align: center;
     font-family: "Quicksand", sans-serif;
     margin-top: 1%;
+    font-size: 23px;
+    color: burlywood;
+}
+
+/* billeder af linestanders*/
+.camilla {
+    float: left;
+    margin-left: 10%;
+}
+
+.josefine {
+    float: right;
+    margin-right: 10%;
 }
