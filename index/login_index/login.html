@@ -2,9 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Login</title>
+    <script src="classCostumer.js"></script>
+    <script src="DBcostumer.js"></script>
 </head>
 <body>
-
+<form class="login">
+    Email:
+    <br>
+    <input id="email" type="text" name="email" placeholder="Emailadresse">
+    <br>
+    <br>
+    Kodeord:
+    <br>
+    <input id="pwd" type="password" name="kodeord" placeholder="Password">
+    <br>
+    <br>
+    <button id="btn" type="submit" style="cursor: pointer;" onclick="login()">Login</button>
+</form>
 </body>
 </html>
