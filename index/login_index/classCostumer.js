@@ -1,4 +1,3 @@
-
 class ClassCostumer {
     constructor(fornavn, efternavn, email, kodeord){
         this.fornavn = fornavn;
@@ -6,4 +5,5 @@ class ClassCostumer {
         this.email = email;
         this.kodeord = kodeord;
     }
+    
 }
