@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="../css_index/style_index.css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+    <script src="kurv.js"></script>
 </head>
 <body>
 
@@ -16,11 +17,7 @@
 <div class="menu">
     <nav>
         <ul>
-            <li> <a href="">Login</a>
-                <ul>
-                    <li> <a href="">Login</a></li>
-                    <li> <a href="">Opret bruger</a></li>
-                </ul>
+            <li> <a href="../login_index/login.html">Login</a>
             </li>
             <li> <a href="">Linestander</a>
                 <ul>
@@ -40,6 +37,25 @@
         </ul>
     </nav>
 </div>
+
+<h1>KURV</h1>
+
+<!--
+<h2> Du har valgt x til at stå i kø for dig</h2>
+<br/>
+<h3> Beskriv kort, hvad x skal hjælpe med</h3>
+<input id="beskrivelseJob" type="text" value="">
+-->
+
+<!-- Product quantity - antal timer + husk at tilføje JS-->
+<h2> pris: 120kr/timen</h2>
+<br/>
+<span> Antal timer: </span>
+<br/>
+<input id="antalTimer" type="text" value="0">
+<br/>
+<button onclick="calculatePrice()" type="button">Calculate Price</button>
+<span>Samlet Pris: kr. </span><span id="totalPris"></span>
 
 </body>
 </html>

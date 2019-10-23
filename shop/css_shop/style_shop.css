@@ -3,7 +3,7 @@ body {
 }
 
 /* logo */
-img{
+#logo {
     vertical-align: top;
     margin-left: 40%;
     margin-top: 10px;
@@ -111,4 +111,44 @@ ul li:hover ul li {
     font-family: "Quicksand", sans-serif;
     margin-top: 1%;
     font-size: 23px;
+    color: burlywood;
+}
+
+/* billeder af linestanders*/
+.column {
+    width: 1170px;
+    margin: 4% auto;
+}
+/*Teksen til billedet*/
+.beskrivelse {
+    text-align: center;
+    margin-bottom: 30px;
+}
+/*Boksen rundt om billede og tekst*/
+.lineStanders {
+    width: 35%;
+    height: auto;
+    float: left;
+    box-shadow: 5px 5px 15px #000000;
+    position: relative;
+    display: block;
+    overflow: hidden;
+    padding: 15px;
+    text-align: center;
+    margin: 10px 70px;
+    background: floralwhite;
+}
+/*Billede i boks*/
+.lineStanders img{
+    width: 100%;
+}
+/*Navn (overskrift)*/
+.lineStanders h3 {
+    margin: 0;
+    font-size: 20px;
+    color: #000000;
+}
+/*Mangler hover effekt*/
+.lineStanders:hover {
+    border-color: #d04f81;
 }
