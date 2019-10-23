@@ -5,5 +5,4 @@ class ClassCostumer {
         this.email = email;
         this.kodeord = kodeord;
     }
-    
 }

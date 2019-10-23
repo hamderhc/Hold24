@@ -7,28 +7,38 @@ listCustomers.push(new ClassCostumer("Ramazan","Akbas","akbas","1996"));
 listCustomers.push(new ClassCostumer("Hans-Christian","Albertsen","HC@gmail.dk","1111"));
 */
 
-
+/*Opretter funktion til at logge ind med allerede oprettede brugere*/
 function login() {
-    var userInput = document.getElementById('myUsername').value;
-    var passwo = document.getElementById('pwd').value;
+    var userInput = document.getElementById('myUsername').value;/*Henter data fra html brugernavn boks.*/
+    var passwo = document.getElementById('pwd').value;/*Henter data fra html kodeord boks.*/
 
-
+/*Når du logger ind tjekker den om brugernavn eksisterer og om password er korrekt.*/
     for (var i = 0; i < listCustomers.length; i++) {
+        /*Hvis brugernavnet(fornavnet) og kodeordet er defineret i listcostumers bliver man logget ind. */
         if (userInput == listCustomers[i].firstName && passwo == listCustomers[i].pwd) {
+            alert("You have been logged in as " + userInput)
            console.log("you have been logged in as " + userInput);
            return;
         }
+        /*Hvis boksen til brugernavnet(fornavnet) er tom skriver den enter username please.*/
         if(userInput =="") {
+            alert("Enter username please")
             console.log("enter username please");
             return;
         }
-
+        /*Hvis boksen til kodeordet er tom skriver den enter password please.*/
+        if(passwo =="") {
+            alert("Enter password please")
+            console.log("enter password please");
+            return;
+        }
     }
     console.log("incorrect password or username");
-
 }
 
+/*Opretter en funktion til at oprette nye brugere*/
 function registerNewUser() {
+    /*Opretter variable til boksene i html*/
     var registerNewUser = document.getElementById('newUser').value;
     var registerNewPwd = document.getElementById('newPwd').value;
     var verifyNewPassword = document.getElementById('verifyNewPwd').value;
