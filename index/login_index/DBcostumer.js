@@ -40,8 +40,6 @@ function login() {
 function registerNewUser() {
     /*Opretter variable til boksene i html*/
     var registerNewUser = document.getElementById('newUser').value;
-    var registerNewPwd = document.getElementById('newPwd').value;
-    var verifyNewPassword = document.getElementById('verifyNewPwd').value;
     var information = {
         firstName: document.getElementById('newUser').value,
         pwd: document.getElementById('newPwd').value,
@@ -53,22 +51,31 @@ function registerNewUser() {
             alert("user is taken");
             return;
         }
-        if(8 > registerNewPwd.length) {
-            alert("Password has to be more than 8 characters");
-            console.log("Password has to be more than 8 characters");
-            return;
+        if(validateUser() == false) {
+            break;
         }
-        if(registerNewPwd!=verifyNewPassword) {
-            console.log("please write the same password as above");
-            return;
-        }
-        if(registerNewUser == null || registerNewUser == "") {
-            console.log("username cannot be empty, please choose one");
-            return;
+        else {
+            listCustomers.push(information);
+            localStorage.setItem('customerInformationList',JSON.stringify(listCustomers));
         }
     }
-    listCustomers.push(information);
-    localStorage.setItem('customerInformationList',JSON.stringify(listCustomers));
-
 }
 
+function validateUser() {
+    var verifyNewPassword = document.getElementById('verifyNewPwd').value;
+    var registerNewPwd = document.getElementById('newPwd').value;
+
+    if(8 > registerNewPwd.length) {
+        alert("Password has to be more than 8 characters");
+        console.log("Password has to be more than 8 characters");
+        return false;
+    }
+    if(registerNewPwd!=verifyNewPassword) {
+        console.log("please write the same password as above");
+        return false;
+    }
+    if(registerNewUser == null || registerNewUser == "") {
+        console.log("username cannot be empty, please choose one");
+        return false;
+    }
+}
