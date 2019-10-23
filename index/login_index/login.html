@@ -5,45 +5,47 @@
         <title>Login</title>
         <script src="classCostumer.js"></script>
         <script src="DBcostumer.js"></script>
+        <link rel="stylesheet" href="style_login.css">
     </head>
     <body>
 
     <!-- Log ind-->
-    <h2>Log ind</h2>
-    <form class="login">
-        Brugernavn
-        <br>
-        <input id="myUsername" type="text" name="username" placeholder="brugernavn...">
-        <br>
-        <br>
-        Kodeord:
-        <br>
-        <input id="pwd" type="password" name="kodeord" placeholder="kodeord">
-        <br>
-        <br>
-        <button id="btn" type="submit" style="cursor: pointer;" onclick="login()">Login</button>
-    </form>
-    <br>
+    <div class="wrapper">
+        <h2>Log ind</h2>
+        <div id="error_message"></div>
+        <form class="login" onsubmit="return validation()">
+            Brugernavn
+            <div class="input_field">
+                <input id="myUsername" type="text" name="username" placeholder="brugernavn...">
+            </div>
+            Kodeord:
+            <div class="input_field">
+                <input id="pwd" type="password" name="kodeord" placeholder="kodeord">
+            </div>
+            <div class="trykHer">
+                <button id="btn" type="submit" onclick="login()">Login</button>
+            </div>
+        </form>
     <br>
     <h2> Opret ny bruger her</h2>
 <!-- opret bruger-->
     <form class="login">
         Skriv ny bruger:
-        <br>
-        <input id="newUser" type="text" name="username" placeholder="opret bruger">
-        <br>
-        <br>
+        <div class="input_field">
+            <input id="newUser" type="text" name="username" placeholder="opret bruger">
+        </div>
         Kodeord:
-        <br>
-        <input id="newPwd" type="password" name="kodeord" placeholder="opret kode">
-        <br>
-        <br>
+        <div class="input_field">
+            <input id="newPwd" type="password" name="kodeord" placeholder="opret kode">
+        </div>
         Bekræft kode:
-        <br>
-        <input id="verifyNewPwd" type="password" name ="kodeord" placeholder="bekræft kode">
-        <br>
-        <br>
-        <button id="newBtn" type="submit" style="cursor: pointer;" onclick="registerNewUser()">Opret</button>
+        <div class="input_field">
+            <input id="verifyNewPwd" type="password" name ="kodeord" placeholder="bekræft kode">
+        </div>
+        <div class="trykHer">
+            <button id="newBtn" type="submit" onclick="registerNewUser()">Opret</button>
+        </div>
     </form>
+    </div>
     </body>
     </html>

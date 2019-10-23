@@ -1,0 +1,79 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    font-family: "Quicksand", sans-serif;
+}
+
+body {
+    background: antiquewhite;
+}
+
+.wrapper{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /*Gør at det står præcis i midten af siden*/
+    max-width: 350px;
+    width: 100%;
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 5px;
+    box-shadow: 4px 4px 2px rgba(254,236,164,1);
+}
+
+.wrapper h2{
+    text-align: center;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: indianred;
+}
+
+.wrapper .input_field{
+    margin-bottom: 10px;
+}
+
+/*Defination af længden på tekstboksen*/
+.wrapper .input_field input[type="text"],
+.wrapper textarea{
+    width: 100%;
+    border: 1px solid #e0e0e0;
+    padding: 8px;
+}
+
+/*Defination af længden på tekstboksen*/
+.wrapper .input_field input[type="password"],
+.wrapper textarea{
+    width: 100%;
+    border: 1px solid #e0e0e0;
+    padding: 8px;
+}
+
+.wrapper .trykHer button[type="submit"]{
+    border: 0;
+    margin-top: 15px;
+    padding: 10px;
+    width: 100%;
+    background: burlywood;
+    color: #332902;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.wrapper #error_message{
+    margin-bottom: 20px;
+    padding: 0px;
+    background: indianred;
+    text-align: center;
+    font-size: 14px;
+    transition: all 0.5s ease; /*Gør at den kommer frem.*/
+
+}
+
+
