@@ -53,7 +53,8 @@ function registerNewUser() {
             alert("user is taken");
             return;
         }
-        if(registerNewPwd.length <8) {
+        if(8 > registerNewPwd.length) {
+            alert("Password has to be more than 8 characters");
             console.log("Password has to be more than 8 characters");
             return;
         }
