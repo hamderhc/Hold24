@@ -151,3 +151,93 @@ ul li:hover ul li {
 .lineStanders:hover {
     border-color: #d04f81;
 }
+
+
+
+
+/* linestander 1: Boksen rundt om billede og tekst*/
+.lineStanders1 {
+    width: 35%;
+    height: auto;
+    float: left;
+    box-shadow: 5px 5px 15px #000000;
+    position: relative;
+    display: block;
+    overflow: hidden;
+    padding: 15px;
+    text-align: center;
+    margin: 10px 70px;
+    background: floralwhite;
+}
+/*Billede i boks*/
+.lineStanders1 img{
+    width: 100%;
+}
+/*Navn (overskrift)*/
+.lineStanders1 h3 {
+    margin: 0;
+    font-size: 20px;
+    color: #000000;
+}
+/*Mangler hover effekt*/
+.lineStanders1:hover {
+    border-color: #d04f81;
+}
+
+/* linestander 2: Boksen rundt om billede og tekst*/
+.lineStanders2 {
+    width: 35%;
+    height: auto;
+    float: left;
+    box-shadow: 5px 5px 15px #000000;
+    position: relative;
+    display: block;
+    overflow: hidden;
+    padding: 15px;
+    text-align: center;
+    margin: 10px 70px;
+    background: floralwhite;
+}
+/*Billede i boks*/
+.lineStanders2 img{
+    width: 100%;
+}
+/*Navn (overskrift)*/
+.lineStanders2 h3 {
+    margin: 0;
+    font-size: 20px;
+    color: #000000;
+}
+/*Mangler hover effekt*/
+.lineStanders2:hover {
+    border-color: #d04f81;
+}
+
+/* linestander 3: Boksen rundt om billede og tekst*/
+.lineStanders3 {
+    width: 35%;
+    height: auto;
+    float: left;
+    box-shadow: 5px 5px 15px #000000;
+    position: relative;
+    display: block;
+    overflow: hidden;
+    padding: 15px;
+    text-align: center;
+    margin: 10px 70px;
+    background: floralwhite;
+}
+/*Billede i boks*/
+.lineStanders3 img{
+    width: 100%;
+}
+/*Navn (overskrift)*/
+.lineStanders3 h3 {
+    margin: 0;
+    font-size: 20px;
+    color: #000000;
+}
+/*Mangler hover effekt*/
+.lineStanders3:hover {
+    border-color: #d04f81;
+}
