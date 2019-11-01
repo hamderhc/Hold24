@@ -1,8 +1,6 @@
 class ClassCostumer {
-    constructor(fornavn, efternavn, email, kodeord){
-        this.fornavn = fornavn;
-        this.efternavn = efternavn;
-        this.email = email;
+    constructor(brugernavn, kodeord){
+        this.brugernavn = brugernavn;
         this.kodeord = kodeord;
     }
 }

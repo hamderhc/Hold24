@@ -1,5 +1,9 @@
 
 var listCustomers = JSON.parse(localStorage.getItem('customerInformationList')) || [];
+/*Gør at errormessage bliver stående på siden og ikke forsvinder før man reloader.*/
+document.getElementById("newBtn").addEventListener("click", function(event){
+    event.preventDefault()
+});
 /*
 listCustomers.push(new ClassCostumer("Stine","Lønborg","stine-aif@hotmail.com","1234"));
 listCustomers.push(new ClassCostumer("Jonathan","Mostov","jmmostov2603@gmail.com","4321"));
@@ -18,17 +22,17 @@ function login() {
         if (userInput == listCustomers[i].firstName && passwo == listCustomers[i].pwd) {
         //    alert("You have been logged in as " + userInput)
           console.log("you have been logged in as " + userInput);
-           window.open('./test.html');
+           window.open('../index.html');
         }
         /*Hvis boksen til brugernavnet(fornavnet) er tom skriver den enter username please.*/
         if(userInput =="") {
-          //  alert("Enter username please")
+          //alert("Enter username please")
             console.log("enter username please");
             return;
         }
         /*Hvis boksen til kodeordet er tom skriver den enter password please.*/
         if(passwo =="") {
-        //   alert("Enter password please")
+        //alert("Enter password please")
             console.log("enter password please");
             return;
         }
@@ -48,7 +52,7 @@ function registerNewUser() {
 
     for(var i =0; i< listCustomers.length; i++ ){
         if(registerNewUser == listCustomers[i].firstName) {
-            alert("User is taken");
+            console.log("User is taken");
             return;
         }
     }
@@ -59,10 +63,12 @@ function registerNewUser() {
     else {
         listCustomers.push(information);
         localStorage.setItem('customerInformationList', JSON.stringify(listCustomers));
+        alert("Du har nu oprettet en bruger")
     }
-
 }
+
 function validateUser() {
+    var registerNewUser = document.getElementById("newUser").value;
     var registerNewPwd = document.getElementById('newPwd').value;
     var verifyNewPassword = document.getElementById('verifyNewPwd').value;
     var getErrorMessage = document.getElementById('error_message');
@@ -70,24 +76,25 @@ function validateUser() {
 
     getErrorMessage.style.padding = "10px";
 
+    if(registerNewUser == null || registerNewUser == "") {
+        text= "Username cannot be empty, please choose one";
+        getErrorMessage.innerHTML = text;
+        // console.log("Username cannot be empty, please choose one");
+        console.log(getErrorMessage.innerHTML)
+        return false;
+    }
 
-    if(registerNewPwd.length <8) {
+    if(registerNewPwd.length < 8) {
         text = "Password has to be more than 8 characters";
         getErrorMessage.innerHTML = text;
-       // console.log("Password has to be more than 8 characters");
+        console.log(getErrorMessage.innerHTML)
         return false;
 
     }
     if(registerNewPwd!=verifyNewPassword) {
-       // console.log("Please write the same password as above");
-        text = "Plesae write the same password as above";
+        text = "Please write the same password as above";
         getErrorMessage.innerHTML = text;
-        return false;
-    }
-    if(registerNewUser == null || registerNewUser == "") {
-        text= "Username cannot be empty, please choose one";
-        getErrorMessage.innerHTML = text;
-       // console.log("Username cannot be empty, please choose one");
+        console.log(getErrorMessage.innerHTML)
         return false;
     }
 }

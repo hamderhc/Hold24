@@ -62,7 +62,6 @@ Når dette er gjort fortsætter kunden købet ved at trykke på knappen “Vider
     - Adresse
     - Telefonnr. 
     - Email
-    - hej
 
 ## Klassediagram
 ![Alt text](billeder/klassediagram2.jpg?raw=true "klassediagram")
