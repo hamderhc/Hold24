@@ -1,3 +1,4 @@
+//Opretter tomt array. Og siger at den skal get item eller smide objektet ind i det tomme array.
 var listCustomers = JSON.parse(localStorage.getItem('customerInformationList')) || [];
 
 /*Gør at errormessage bliver stående på siden og ikke forsvinder før man reloader.*/
@@ -15,13 +16,14 @@ listCustomers.push(new ClassCostumer("Hans-Christian","Albertsen","HC@gmail.dk",
 function login() {
     var userInput = document.getElementById('myUsername').value; /*Henter data fra html brugernavn boks.*/
     var passwo = document.getElementById('pwd').value; /*Henter data fra html kodeord boks.*/
+
 /*Når du logger ind tjekker den om brugernavn eksisterer og om password er korrekt.*/
     for (var i = 0; i < listCustomers.length; i++) {
         /*Hvis brugernavnet(fornavnet) og kodeordet er defineret i listcostumers bliver man logget ind. */
         if (userInput == listCustomers[i].firstName && passwo == listCustomers[i].pwd) {
         //    alert("You have been logged in as " + userInput)
           console.log("you have been logged in as " + userInput);
-           window.open('../index.html');
+           window.open('../index.html'); //Når du er logget ind sendes du videre til forsiden.
             return;
         }
 
@@ -51,6 +53,9 @@ function registerNewUser() {
         verifyPwd: document.getElementById('verifyNewPwd').value
     };
 
+    //Hvis funktionen validateUser returnerer en fejl vil der ikke blive oprettet en ny bruger.
+    //Men er der ingen fejl vil den pushe vores information ind i vores tomme array øverst.
+    //Objekterne i det tomme array
     if(validateUser() == false) {
         return;
     }

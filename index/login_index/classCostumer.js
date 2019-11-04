@@ -4,3 +4,5 @@ class ClassCostumer {
         this.kodeord = kodeord;
     }
 }
+
+
