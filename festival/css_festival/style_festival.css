@@ -1,6 +1,20 @@
 body {
     margin: 0;
+    padding-top: 80px;
 }
+
+.show-cart li {
+    display-inside: flex;
+}
+
+.card {
+    margin-bottom: 20px;
+}
+
+.card-img-top {
+    align-self: center;
+}
+
 /* logo */
 #logo {
     vertical-align: top;
@@ -124,8 +138,8 @@ ul li:hover ul li {
     margin-bottom: 30px;
 }
 /*Boksen rundt om billede og tekst*/
-.lineStanders {
-     width: 35%;
+.card-img-top {
+     width: 100%;
      height: auto;
      float: left;
      box-shadow: 5px 5px 15px #000000;
@@ -138,7 +152,7 @@ ul li:hover ul li {
      background: floralwhite;
  }
 /*Billede i boks*/
-.lineStanders img{
+.card-img-top img{
     width: 100%;
 }
 /*Navn (overskrift)*/
@@ -241,3 +255,4 @@ ul li:hover ul li {
 .lineStanders3:hover {
     border-color: #d04f81;
 }
+
