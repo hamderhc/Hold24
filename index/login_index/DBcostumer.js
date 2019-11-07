@@ -1,3 +1,111 @@
+class Costumer {
+    constructor(firstName, password) {
+        this.firstName = firstName;
+        this.password = password;
+    }
+    /*Opretter funktion til at logge ind med allerede oprettede brugere*/
+    login() {
+        var userInput = document.getElementById('myUsername').value; /*Henter data fra html brugernavn boks.*/
+        var passwo = document.getElementById('pwd').value; /*Henter data fra html kodeord boks.*/
+
+        /*Når du logger ind tjekker den om brugernavn eksisterer og om password er korrekt.*/
+        for (var i = 0; i < listCustomers.length; i++) {
+            /*Hvis brugernavnet(fornavnet) og kodeordet er defineret i listcostumers bliver man logget ind. */
+            if (userInput == listCustomers[i].firstName && passwo == listCustomers[i].pwd) {
+                //    alert("You have been logged in as " + userInput)
+                console.log("Du er logget på som " + userInput);
+                window.open('../index.html'); //Når du er logget ind sendes du videre til forsiden.
+                return;
+            }
+
+            /*SNL: jeg forstår ikke helt hvorfor dette if statement skal være der, men valideringerne virker ikke uden*/
+            if (userInput == "") {
+                //alert("Enter username please")
+                console.log("Skriv venligst dit brugernavn");
+                return;
+            }
+
+            //Hvis boksen til kodeordet er tom skriver den enter password please.
+            if (passwo == "") {
+                //alert("Enter password please")
+                console.log("Skriv venligst kodeordet");
+                return;
+            }
+        }
+        console.log("Forkert kode eller brugernavn");
+        return;
+    }
+
+    /*Opretter en funktion til at oprette nye brugere*/
+    registerNewUser() {
+        /*Opretter variable til boksene i html*/
+        // var registerNewUser = document.getElementById('newUser').value;
+        var information = {
+            firstName: document.getElementById('newUser').value,
+            pwd: document.getElementById('newPwd').value,
+            verifyPwd: document.getElementById('verifyNewPwd').value
+        };
+
+        //Hvis funktionen validateUser returnerer en fejl vil der ikke blive oprettet en ny bruger.
+        //Men er der ingen fejl vil den pushe vores information ind i vores tomme array øverst.
+        //Objekterne i det tomme array
+        if (this.validateUser() == false) {
+            return;
+        } else {
+            listCustomers.push(information);
+            localStorage.setItem('customerInformationList', JSON.stringify(listCustomers));
+            alert("Du har nu oprettet en bruger");
+        }
+    }
+
+//SNL: Funktion til at validere de forskellige felter.
+    validateUser() {
+        var registerNewUser = document.getElementById("newUser").value;
+        var registerNewPwd = document.getElementById('newPwd').value;
+        var verifyNewPassword = document.getElementById('verifyNewPwd').value;
+        var getErrorMessage = document.getElementById('error_message');
+        var text;
+
+        getErrorMessage.style.padding = "10px"; //SNL: Stylingen på errorMessage som kommer til at være i toppen af login og registrer.
+
+        //SNL: If statement som tjekker om feltet med brugernavn er tomt, hvis det er det skal den skrive en errormessage.
+        if (registerNewUser == null || registerNewUser == "") {
+            text = "Brugernavnet kan ikke være tomt, vælg venligst et";
+            getErrorMessage.innerHTML = text;
+            // console.log("Username cannot be empty, please choose one");
+            console.log(getErrorMessage.innerHTML)
+            return false;
+        }
+
+        //SNL: for loop som hopper gennem vores array i toppen.
+        //SNL: If statement, der tjekker om brugernavnet allerede findes i vores array. Hvis sand get errormessage.
+        for (var i = 0; i < listCustomers.length; i++) {
+            if (registerNewUser == listCustomers[i].firstName) {
+                text = "Brugernavnet er desværre optaget";
+                getErrorMessage.innerHTML = text;
+                console.log(getErrorMessage.innerHTML);
+                return false;
+            }
+        }
+        //SNL: If statement som tjekker længden på kodeordet. Hvis det er under eller lig 8 karakterer sender den errormessage.
+        if (registerNewPwd.length < 8) {
+            text = "Kodeordet skal være på minimum 8 karakterer";
+            getErrorMessage.innerHTML = text;
+            console.log(getErrorMessage.innerHTML)
+            return false;
+        }
+        //SNL: If statement som tjekker om det kodeord der er skrevet i "Bekræft kodeord" er forskellig fra det der er skrevet i "Kodeord".
+        //SNL: er de forskellige sender den en errormessage.
+        if (registerNewPwd !== verifyNewPassword) {
+            text = "Gentag venligst det samme kodeord som ovenover";
+            getErrorMessage.innerHTML = text;
+            console.log(getErrorMessage.innerHTML)
+            return false;
+        }
+    }
+
+}
+
 //Opretter tomt array. Og siger at den skal get item eller smide objektet ind i det tomme array.
 var listCustomers = JSON.parse(localStorage.getItem('customerInformationList')) || [];
 
@@ -5,106 +113,9 @@ var listCustomers = JSON.parse(localStorage.getItem('customerInformationList')) 
 addEventListener("click", function(event){
     event.preventDefault();
 });
-/*
-listCustomers.push(new ClassCostumer("Stine","Lønborg","stine-aif@hotmail.com","1234"));
-listCustomers.push(new ClassCostumer("Jonathan","Mostov","jmmostov2603@gmail.com","4321"));
-listCustomers.push(new ClassCostumer("Ramazan","Akbas","akbas","1996"));
-listCustomers.push(new ClassCostumer("Hans-Christian","Albertsen","HC@gmail.dk","1111"));
-*/
 
-/*Opretter funktion til at logge ind med allerede oprettede brugere*/
-function login() {
-    var userInput = document.getElementById('myUsername').value; /*Henter data fra html brugernavn boks.*/
-    var passwo = document.getElementById('pwd').value; /*Henter data fra html kodeord boks.*/
+//Opretter en fast bruger som altid kan logge ind.
+listCustomers.push(new Costumer("Stine", "123456789"));
 
-/*Når du logger ind tjekker den om brugernavn eksisterer og om password er korrekt.*/
-    for (var i = 0; i < listCustomers.length; i++) {
-        /*Hvis brugernavnet(fornavnet) og kodeordet er defineret i listcostumers bliver man logget ind. */
-        if (userInput == listCustomers[i].firstName && passwo == listCustomers[i].pwd) {
-        //    alert("You have been logged in as " + userInput)
-          console.log("you have been logged in as " + userInput);
-           window.open('../index.html'); //Når du er logget ind sendes du videre til forsiden.
-            return;
-        }
-
-        if(userInput =="") {
-            //alert("Enter username please")
-            console.log("enter username please");
-            return;
-        }
-        /*Hvis boksen til kodeordet er tom skriver den enter password please.*/
-        if(passwo =="") {
-            //alert("Enter password please")
-            console.log("enter password please");
-            return;
-        }
-    }
-        console.log("forkert kode eller brugernavn");
-        return;
-}
-
-/*Opretter en funktion til at oprette nye brugere*/
-function registerNewUser() {
-    /*Opretter variable til boksene i html*/
-   // var registerNewUser = document.getElementById('newUser').value;
-    var information = {
-        firstName: document.getElementById('newUser').value,
-        pwd: document.getElementById('newPwd').value,
-        verifyPwd: document.getElementById('verifyNewPwd').value
-    };
-
-    //Hvis funktionen validateUser returnerer en fejl vil der ikke blive oprettet en ny bruger.
-    //Men er der ingen fejl vil den pushe vores information ind i vores tomme array øverst.
-    //Objekterne i det tomme array
-    if(validateUser() == false) {
-        return;
-    }
-    else {
-        listCustomers.push(information);
-        localStorage.setItem('customerInformationList', JSON.stringify(listCustomers));
-        alert("Du har nu oprettet en bruger");
-    }
-}
-
-function validateUser() {
-    var registerNewUser = document.getElementById("newUser").value;
-    var registerNewPwd = document.getElementById('newPwd').value;
-    var verifyNewPassword = document.getElementById('verifyNewPwd').value;
-    var getErrorMessage = document.getElementById('error_message');
-    var text;
-
-    getErrorMessage.style.padding = "10px";
-
-    if(registerNewUser == null || registerNewUser == "") {
-        text= "Username cannot be empty, please choose one";
-        getErrorMessage.innerHTML = text;
-        // console.log("Username cannot be empty, please choose one");
-        console.log(getErrorMessage.innerHTML)
-        return false;
-    }
-
-    for(var i =0; i< listCustomers.length; i++ ){
-        if(registerNewUser == listCustomers[i].firstName) {
-            text="User is unfortunately already taken";
-            getErrorMessage.innerHTML = text;
-            console.log(getErrorMessage.innerHTML);
-            return false;
-        }
-    }
-
-    if(registerNewPwd.length < 8) {
-        text = "Password has to be more than 8 characters";
-        getErrorMessage.innerHTML = text;
-        console.log(getErrorMessage.innerHTML)
-        return false;
-
-    }
-    if(registerNewPwd!==verifyNewPassword) {
-        text = "Please write the same password as above";
-        getErrorMessage.innerHTML = text;
-        console.log(getErrorMessage.innerHTML)
-        return false;
-    }
-}
 
 

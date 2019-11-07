@@ -1,7 +1,7 @@
 class ClassCostumer {
-    constructor(brugernavn, kodeord){
-        this.brugernavn = brugernavn;
-        this.kodeord = kodeord;
+    constructor(firstName, pwd){
+        this.firstName = firstName;
+        this.pwd = pwd;
     }
 }
 
