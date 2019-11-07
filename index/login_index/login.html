@@ -3,7 +3,6 @@
     <head>
         <meta charset="UTF-8">
         <title>Login</title>
-        <script src="classCostumer.js"></script>
         <script src="DBcostumer.js"></script>
         <link rel="stylesheet" href="style_login.css">
     </head>
@@ -27,7 +26,7 @@
                 <input id="pwd" type="password" name="kodeord" placeholder="kodeord">
             </div>
             <div class="trykHer">
-                <button id="btn" type="submit" onclick="login()">Login</button>
+                <button id="btn" type="submit" onclick="Costumer.login()">Login</button>
             </div>
         </form>
     <br>
@@ -47,7 +46,7 @@
             <input id="verifyNewPwd" type="password" name ="kodeord" placeholder="bekræft kode">
         </div>
         <div class="trykHer">
-            <button id="newBtn" type="submit" onclick="registerNewUser()">Opret</button>
+            <button id="newBtn" type="submit" onclick="Costumer.registerNewUser()">Opret</button>
         </div>
     </form>
     </div>

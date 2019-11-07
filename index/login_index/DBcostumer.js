@@ -4,14 +4,14 @@ class Costumer {
         this.password = password;
     }
     /*Opretter funktion til at logge ind med allerede oprettede brugere*/
-    login() {
+    static login() {
         var userInput = document.getElementById('myUsername').value; /*Henter data fra html brugernavn boks.*/
         var passwo = document.getElementById('pwd').value; /*Henter data fra html kodeord boks.*/
 
         /*Når du logger ind tjekker den om brugernavn eksisterer og om password er korrekt.*/
         for (var i = 0; i < listCustomers.length; i++) {
             /*Hvis brugernavnet(fornavnet) og kodeordet er defineret i listcostumers bliver man logget ind. */
-            if (userInput == listCustomers[i].firstName && passwo == listCustomers[i].pwd) {
+            if (userInput == listCustomers[i].username && passwo == listCustomers[i].pwd) {
                 //    alert("You have been logged in as " + userInput)
                 console.log("Du er logget på som " + userInput);
                 window.open('../index.html'); //Når du er logget ind sendes du videre til forsiden.
@@ -37,11 +37,11 @@ class Costumer {
     }
 
     /*Opretter en funktion til at oprette nye brugere*/
-    registerNewUser() {
+    static registerNewUser() {
         /*Opretter variable til boksene i html*/
         // var registerNewUser = document.getElementById('newUser').value;
         var information = {
-            firstName: document.getElementById('newUser').value,
+            username: document.getElementById('newUser').value,
             pwd: document.getElementById('newPwd').value,
             verifyPwd: document.getElementById('verifyNewPwd').value
         };
@@ -59,7 +59,7 @@ class Costumer {
     }
 
 //SNL: Funktion til at validere de forskellige felter.
-    validateUser() {
+    static validateUser() {
         var registerNewUser = document.getElementById("newUser").value;
         var registerNewPwd = document.getElementById('newPwd').value;
         var verifyNewPassword = document.getElementById('verifyNewPwd').value;
@@ -103,19 +103,21 @@ class Costumer {
             return false;
         }
     }
-
 }
 
 //Opretter tomt array. Og siger at den skal get item eller smide objektet ind i det tomme array.
 var listCustomers = JSON.parse(localStorage.getItem('customerInformationList')) || [];
+
+//Forsøg på at lave et nyt array til nye oprettede brugere.
+var registeredCostumers = JSON.parse(localStorage.getItem('newCostumerInformationList')) || [];
 
 /*Gør at errormessage bliver stående på siden og ikke forsvinder før man reloader.*/
 addEventListener("click", function(event){
     event.preventDefault();
 });
 
-//Opretter en fast bruger som altid kan logge ind.
+//Opretter faste bruger som altid kan logge ind.
 listCustomers.push(new Costumer("Stine", "123456789"));
-
-
+listCustomers.push(new Costumer("Rama", "111111111"));
+listCustomers.push(new Costumer("Jonathan", "999999999"));
 
