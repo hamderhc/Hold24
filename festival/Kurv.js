@@ -38,7 +38,7 @@ class Product {
 
     displayShoppingCart() {
         var orderedProductsTblBody = document.getElementById("orderedProductsTblBody").innerHTML = txt;
-        console.log(orderedProductsTblBody)
+        console.log(orderedProductsTblBody);
         //ensure we delete all previously added rows from ordered products table
         /* while (orderedProductsTblBody.rows.length > 0) {
              orderedProductsTblBody.deleteRow(0);
@@ -70,7 +70,7 @@ class Product {
             document.getElementById("cartTotal").innerHTML = cartTotalPrice;
         }
 
-
+//test
     }
 /*    static AddtoCart(){
         for(i=0; i<allProducts.length; i++){
