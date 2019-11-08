@@ -1,0 +1,42 @@
+/*
+class ShoppingCart {
+    constructor(total, items){
+        this.total = 0;
+        this.items = {};
+    }
+
+    addItem(itemName, quantity, price) {
+        this.total += price;
+        this.items["itemName"] = quantity;
+    }
+
+    removeItem(itemName, quantity, price) {
+        if (quantity > this.items["itemName"]) {
+            delete this.items["itemName"];
+        }
+        else {
+            delete this.items["itemName"](this.items["itemName"] - quantity);
+        }
+        this.total -= price;
+    }
+}
+
+//extends shoppingcart
+class Shop extends ShoppingCart {
+    constructor
+}
+
+
+
+
+class productClass {
+    constructor(name, location, price) {
+            this.name = name;
+            this.location = location;
+            this.price = price;
+    }
+}
+hProduct = new productClass("Andreas", "Copenhagen", 140);
+lproduct = new productClass("Camilla", "Aarhus", 120);
+*/
+

@@ -37,7 +37,7 @@ class Product {
     }
 
     displayShoppingCart() {
-        var orderedProductsTblBody = document.getElementById("orderedProductsTblBody").innerHTML = txt;
+        var orderedProductsTblBody = document.getElementById("orderedProductsTblBody");
         console.log(orderedProductsTblBody);
         //ensure we delete all previously added rows from ordered products table
         /* while (orderedProductsTblBody.rows.length > 0) {
@@ -70,7 +70,6 @@ class Product {
             document.getElementById("cartTotal").innerHTML = cartTotalPrice;
         }
 
-//test
     }
 /*    static AddtoCart(){
         for(i=0; i<allProducts.length; i++){
@@ -127,7 +126,7 @@ for(i=0; i < buttons.length; i++){
     buttons[i].addEventListener("click", function(){
         clickedButtonID = this.id;
         console.log(clickedButtonID);
-        AddtoCart()
+        AddtoCart();
     })
 }
 
