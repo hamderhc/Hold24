@@ -22,7 +22,7 @@ Hvorfor har vi valgt at gøre det sådan?
 
 //Laver et array til at holde på produkterne
 
-var allProducts = []
+var allProducts = [];
 var shoppingCart = [];
 
 //Viser indholdet af shopping kurven
@@ -40,15 +40,15 @@ class Product {
         var orderedProductsTblBody = document.getElementById("orderedProductsTblBody");
         console.log(orderedProductsTblBody);
         //ensure we delete all previously added rows from ordered products table
-        /* while (orderedProductsTblBody.rows.length > 0) {
-             orderedProductsTblBody.deleteRow(0);
-         }*/
+        while (orderedProductsTblBody.rows.length > 0) {
+             orderedProductsTblBody.deleteRow(0); }
+
         //variable til at den totale pris af shopping kurven
-        /*
+
          var cartTotalPrice = 0;
         //iterate over array of objects
 
-        for (var product in shoppingCart) {
+        for (var Product in shoppingCart) {
             //Tilføj ny row
 
             var row = orderedProductsTblBody.insertRow();
@@ -63,14 +63,20 @@ class Product {
 
             // fylder cellerne med værdier fra det valgte produkt i arrayet
 
-            cellName.innerHTML = shoppingCart[product].name;
-            cellDescription.innerHTML = shoppingCart[product].description;
-            cellPrice.innerHTML = shoppingCart[product].price;
-            cartTotalPrice += shoppingCart[product].price;
+            cellName.innerHTML = shoppingCart[Product].name;
+            cellDescription.innerHTML = shoppingCart[Product].description;
+            cellPrice.innerHTML = shoppingCart[Product].price;
+            cartTotalPrice += shoppingCart[Product].price;
             document.getElementById("cartTotal").innerHTML = cartTotalPrice;
+               }
         }
+}
 
-    }
+function removeAll(){
+    document.getElementById("orderedProductsTblBody").innerHTML = "";
+    document.getElementById("cartTotal").innerHTML = "";
+    shoppingCart.splice(0, 99,);
+}
 /*    static AddtoCart(){
         for(i=0; i<allProducts.length; i++){
             if (clickedButtonID == allProducts[i].name){
@@ -80,14 +86,6 @@ class Product {
         }
     }*/
 
-        removeAll()
-        {
-            document.getElementById("orderedProductsTblBody").innerHTML = "";
-            document.getElementById("cartTotal").innerHTML = "";
-            shoppingCart.splice(0, 99,);
-        }
-    }
-}
 
 function createObjects(){
 
@@ -101,7 +99,7 @@ function createObjects(){
 createObjects();
 //var firstItem = new Cart("josef", "copenhagen", 120)
 
-var clickedButtonID
+var clickedButtonID;
 var buttons = document.getElementsByClassName("buttons");
 
 function AddtoCart(){
@@ -113,9 +111,11 @@ function AddtoCart(){
         if (clickedButtonID == allProducts[i].name){
             shoppingCart.push(allProducts[i]);
 
-            console.log("The price is" + shoppingCart[i].price);
-            alert("The price is " + shoppingCart[i].price);
+            console.log("The price is " + shoppingCart[i].price);
+
+            allProducts[i].displayShoppingCart();
            //allProducts[i].displayShoppingCart();
+
 
         }
     }
