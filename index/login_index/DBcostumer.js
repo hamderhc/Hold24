@@ -10,27 +10,31 @@ class Costumer {
 
         /*Når du logger ind tjekker den om brugernavn eksisterer og om password er korrekt.*/
         for (var i = 0; i < listCustomers.length; i++) {
-            /*Hvis brugernavnet(fornavnet) og kodeordet er defineret i listcostumers bliver man logget ind. */
-            if (userInput == listCustomers[i].username && passwo == listCustomers[i].pwd) {
+            /*Hvis brugernavnet(fornavnet) og kodeordet er defineret i listcostumers bliver man logget ind.
+            Eller hvis de faste objekter vi opretter nederst er i listcostumers bliver disse logget ind.*/
+            if (userInput == listCustomers[i].username && passwo == listCustomers[i].pwd || userInput == listCustomers[i].firstName && passwo == listCustomers[i].password) {
                 //    alert("You have been logged in as " + userInput)
                 console.log("Du er logget på som " + userInput);
                 window.open('../index.html'); //Når du er logget ind sendes du videre til forsiden.
                 return;
             }
+        }
+        this.checkLogin();
+    }
 
-            /*SNL: jeg forstår ikke helt hvorfor dette if statement skal være der, men valideringerne virker ikke uden*/
-            if (userInput == "") {
-                //alert("Enter username please")
-                console.log("Skriv venligst dit brugernavn");
-                return;
-            }
-
-            //Hvis boksen til kodeordet er tom skriver den enter password please.
-            if (passwo == "") {
-                //alert("Enter password please")
-                console.log("Skriv venligst kodeordet");
-                return;
-            }
+    //Skal tjekke om brugernavnet er tomt, om kodeordet er tomt eller om brugernavn/kodeord er forkert.
+    static checkLogin() {
+        /*SNL: jeg forstår ikke helt hvorfor dette if statement skal være der, men valideringerne virker ikke uden*/
+        if (userInput == "") {
+            //alert("Enter username please")
+            console.log("Skriv venligst dit brugernavn");
+            return;
+        }
+        //Hvis boksen til kodeordet er tom skriver den enter password please.
+        if (passwo == "") {
+            //alert("Enter password please")
+            console.log("Skriv venligst kodeordet");
+            return;
         }
         console.log("Forkert kode eller brugernavn");
         return;
@@ -55,9 +59,10 @@ class Costumer {
             listCustomers.push(information);
             localStorage.setItem('customerInformationList', JSON.stringify(listCustomers));
             alert("Du har nu oprettet en bruger");
+
+            localStorage.setItem('newCustomerInformationList', JSON.stringify(registeredCostumers));
         }
     }
-
 //SNL: Funktion til at validere de forskellige felter.
     static validateUser() {
         var registerNewUser = document.getElementById("newUser").value;
@@ -75,7 +80,7 @@ class Costumer {
             // console.log("Username cannot be empty, please choose one");
             console.log(getErrorMessage.innerHTML)
             return false;
-        }
+            }
 
         //SNL: for loop som hopper gennem vores array i toppen.
         //SNL: If statement, der tjekker om brugernavnet allerede findes i vores array. Hvis sand get errormessage.
@@ -85,15 +90,15 @@ class Costumer {
                 getErrorMessage.innerHTML = text;
                 console.log(getErrorMessage.innerHTML);
                 return false;
+                }
             }
-        }
         //SNL: If statement som tjekker længden på kodeordet. Hvis det er under eller lig 8 karakterer sender den errormessage.
         if (registerNewPwd.length < 8) {
             text = "Kodeordet skal være på minimum 8 karakterer";
             getErrorMessage.innerHTML = text;
             console.log(getErrorMessage.innerHTML)
             return false;
-        }
+            }
         //SNL: If statement som tjekker om det kodeord der er skrevet i "Bekræft kodeord" er forskellig fra det der er skrevet i "Kodeord".
         //SNL: er de forskellige sender den en errormessage.
         if (registerNewPwd !== verifyNewPassword) {
@@ -101,23 +106,32 @@ class Costumer {
             getErrorMessage.innerHTML = text;
             console.log(getErrorMessage.innerHTML)
             return false;
+            }
         }
     }
-}
 
 //Opretter tomt array. Og siger at den skal get item eller smide objektet ind i det tomme array.
-var listCustomers = JSON.parse(localStorage.getItem('customerInformationList')) || [];
-
-//Forsøg på at lave et nyt array til nye oprettede brugere.
-var registeredCostumers = JSON.parse(localStorage.getItem('newCostumerInformationList')) || [];
+//
+var listCustomers = JSON.parse(localStorage.getItem('customerInformationList'));
+//var listCustomers = JSON.parse(localStorage.getItem('customerInformationList')) || [];
+console.log(listCustomers)
 
 /*Gør at errormessage bliver stående på siden og ikke forsvinder før man reloader.*/
 addEventListener("click", function(event){
     event.preventDefault();
 });
 
-//Opretter faste bruger som altid kan logge ind.
-listCustomers.push(new Costumer("Stine", "123456789"));
-listCustomers.push(new Costumer("Rama", "111111111"));
-listCustomers.push(new Costumer("Jonathan", "999999999"));
+function firstAccess(){
+    if(listCustomers == null){
+        listCustomers = []
+        //Opretter faste bruger som altid kan logge ind.
+        listCustomers.push(new Costumer("Stine", "123456789"));
+        listCustomers.push(new Costumer("Rama", "111111111"));
+        listCustomers.push(new Costumer("Jonathan", "999999999"));
+        localStorage.setItem('customerInformationList', JSON.stringify(listCustomers))
+        console.log(listCustomers)
+    }
+}
+firstAccess()
+
 

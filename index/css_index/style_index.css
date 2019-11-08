@@ -61,14 +61,6 @@ ul li a:hover {
     color: white;
     font-weight: bold;
 }
-ul li ul li {
-    display: none;
-    background-color: indianred;
-    opacity: .9;
-}
-ul li:hover ul li {
-    display: block;
-}
 
 /* søgefunktion */
 .search-box {
@@ -76,7 +68,6 @@ ul li:hover ul li {
     margin-top: 0.5%;
     margin-right: 1%;
     float: right;
-    /*transform: translate(-50%,-50%);*/
     background: burlywood;
     border-radius: 40px;
     padding: 0.25%;
@@ -120,7 +111,6 @@ ul li:hover ul li {
     margin-top: 0.5%;
     margin-right: 1%;
     float: right;
-    /*transform: translate(-50%,-50%);*/
     background: burlywood;
     border-radius: 40px;
     padding: 0.60%;
