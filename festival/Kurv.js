@@ -86,7 +86,7 @@ function removeAll(){
         }
     }*/
 
-
+// Produkterne oprettes og skubbes ind i et array.
 function createObjects(){
 
     allProducts.push(new Product("Josef", "Århus", 120));
@@ -97,10 +97,23 @@ function createObjects(){
     }
 }
 createObjects();
-//var firstItem = new Cart("josef", "copenhagen", 120)
 
+
+// Der oprettes et seperat ID til hver af produkterne.
+var josefBtn = document.getElementById('josefBtn');
+var hannaBtn = document.getElementById('hannaBtn');
+var oliverBtn = document.getElementById('oliverBtn');
+//console.log(josefBtn)
+
+
+//der oprettes en tom variabel, som bruges til at klassificere det valgte produkt (pr. id)
 var clickedButtonID;
+
+// der oprettes en variabel, som kalder alle produkterne pr. knap.
 var buttons = document.getElementsByClassName("buttons");
+
+/* der loopes gennem alle produkterne, og den tager det produkt, som er lig med det id, som man har trykket på, hvorefter
+det valgte produkt pushes ind i det tomme 'shoppingCart' array. */
 
 function AddtoCart(){
     console.log("error");
@@ -114,13 +127,12 @@ function AddtoCart(){
             console.log("The price is " + shoppingCart[i].price);
 
             allProducts[i].displayShoppingCart();
-           //allProducts[i].displayShoppingCart();
-
-
         }
     }
 }
 
+/* Gennem et 'for' loop kører den igennem alle produkterne, hvor den gennem 'this.id' henter det specifikke produkt,
+ herefter sendes produktet til AddtoCart funktionen*/
 for(i=0; i < buttons.length; i++){
     console.log("hi");
     buttons[i].addEventListener("click", function(){
@@ -130,8 +142,5 @@ for(i=0; i < buttons.length; i++){
     })
 }
 
-var josefBtn = document.getElementById('josefBtn');
-var hannaBtn = document.getElementById('hannaBtn');
-var oliverBtn = document.getElementById('oliverBtn');
-//console.log(josefBtn)
+
 
