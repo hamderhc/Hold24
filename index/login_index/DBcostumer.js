@@ -25,7 +25,7 @@ class Costumer {
             if (userInput.value == listCustomers[i].username && passwo.value == listCustomers[i].pwd || userInput.value == listCustomers[i].firstName && passwo.value == listCustomers[i].password) {
                 //    alert("You have been logged in as " + userInput)
                 console.log("Du er logget på som " + userInput);
-                window.open('../index.html'); //Når du er logget ind sendes du videre til forsiden.
+                document.location.href='../index.html';
                 return;
             }
         }
@@ -35,11 +35,19 @@ class Costumer {
 
     static storeLogInInformation() {
         storeLogIn = [];
+        var test = document.getElementById('myUsername').value;
+
         var storeUser = {
-            username: document.getElementById('myUsername').value
+            usernameLoggedin: document.getElementById('myUsername').value
         };
-        storeLogIn.push(storeUser);
-        localStorage.setItem('currentLoggedInUser', JSON.stringify(storeLogIn));
+
+        for(var i = 0; i< listCustomers.length; i++) {
+            if(listCustomers[i].firstName == test || listCustomers[i].username == test) {
+                storeLogIn.push(storeUser);
+                localStorage.setItem('currentLoggedInUser', JSON.stringify(storeLogIn));
+            }
+        }
+        return false;
     }
 
     //Skal tjekke om brugernavnet er tomt, om kodeordet er tomt eller om brugernavn/kodeord er forkert.
