@@ -30,6 +30,16 @@ class Costumer {
             }
         }
         this.checkLogin();
+        this.storeLogInInformation();
+    }
+
+    static storeLogInInformation() {
+        storeLogIn = [];
+        var storeUser = {
+            username: document.getElementById('myUsername').value
+        };
+        storeLogIn.push(storeUser);
+        localStorage.setItem('currentLoggedInUser', JSON.stringify(storeLogIn));
     }
 
     //Skal tjekke om brugernavnet er tomt, om kodeordet er tomt eller om brugernavn/kodeord er forkert.
@@ -135,6 +145,8 @@ class Costumer {
 var listCustomers = JSON.parse(localStorage.getItem('customerInformationList'));
 //var listCustomers = JSON.parse(localStorage.getItem('customerInformationList')) || [];
 console.log(listCustomers);
+
+var storeLogIn = JSON.parse(localStorage.getItem('currentLoggedInUser'));
 
 /*Gør at errormessage bliver stående på siden og ikke forsvinder før man reloader.*/
 addEventListener("click", function(event){
