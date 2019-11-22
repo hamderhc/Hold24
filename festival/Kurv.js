@@ -50,7 +50,7 @@ lægger elementerne i Id'et "orderedProductsTblBody" i HTML (HCA)
     displayShoppingCart() {
         var orderedProductsTblBody = document.getElementById("orderedProductsTblBody");
         console.log(orderedProductsTblBody);
-        //
+        // Tester om der er mere end et produkt, ellers sletter den. 
         while (orderedProductsTblBody.rows.length > 0) {
             orderedProductsTblBody.deleteRow(0); }
 
