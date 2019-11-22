@@ -6,9 +6,11 @@ var text;
 
 
 class Costumer {
-    constructor(firstName, password) {
+    constructor(firstName, password, cart, order) {
         this.firstName = firstName;
         this.password = password;
+        this.cart = cart;
+        this.order = order;
     }
 
     /*Opretter funktion til at logge ind med allerede oprettede brugere*/
