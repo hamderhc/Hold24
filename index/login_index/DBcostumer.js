@@ -6,10 +6,6 @@ var text;
 
 
 
-
-
-
-
 class Costumer {
     constructor(firstName, password, cart, order) {
         this.firstName = firstName;
@@ -169,6 +165,19 @@ function firstAccess(){
 firstAccess();
 
 
-
+/* KR: Nu vil vi lave funktionen "gemKodeord", der bliver aktiveret, når man trykker på checkboksen.
+Dermed siger vi, at "if" kodeordets type er et 'password', så skal det laves om til typen 'text'. "else" vil kodeordet
+laves om tilbage til typen "password".
+Reference: https://www.geeksforgeeks.org/show-hide-password-using-javascript/
+ */
+function gemKodeord() {
+    var a = document.getElementById("pwd");
+    if (a.type === "password") {
+        a.type = "text";
+    }
+    else {
+        a.type = "password";
+    }
+}
 
 
