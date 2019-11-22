@@ -11,7 +11,7 @@
 <body>
 
 <!-- billede logo -->
-<a href="../index.html"><img src="../billeder/logoSTL.png" id="logo"></a>
+<a><img src="../billeder/logoSTL.png" id="logo"></a>
 
 <!-- navigationsbar -->
 <div class="menu">
@@ -19,9 +19,8 @@
 <ul>
         <li> <a href="login_index/login.html">Login</a>
         </li>
-        <li> <a href="../festival/festival.html">Services</a>
+        <li id="alertLogIn"> <a href="login_index/login.html" onclick="alert('Venligst log ind først')">Services</a>
         </li>
-    <button class="kurv" style="font-size:24px;" onclick="window.location.href='kurv_index/kurv.html'"><i class="fa fa-shopping-cart"></i></button>
 
     <form class="search-box">
         <input class="search-txt" type="text" name="" placeholder="Type to search">

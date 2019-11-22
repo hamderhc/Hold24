@@ -25,7 +25,7 @@ class Costumer {
             if (userInput.value == listCustomers[i].username && passwo.value == listCustomers[i].pwd || userInput.value == listCustomers[i].firstName && passwo.value == listCustomers[i].password) {
                 //    alert("You have been logged in as " + userInput)
                 console.log("Du er logget på som " + userInput);
-                document.location.href='../index.html';
+                document.location.href='../../festival/festival.html';
                 return;
             }
         }
@@ -38,7 +38,9 @@ class Costumer {
         var test = document.getElementById('myUsername').value;
 
         var storeUser = {
-            usernameLoggedin: document.getElementById('myUsername').value
+            usernameLoggedin: document.getElementById('myUsername').value,
+           // productName: document
+           // product
         };
 
         for(var i = 0; i< listCustomers.length; i++) {
