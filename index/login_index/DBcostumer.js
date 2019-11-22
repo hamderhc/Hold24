@@ -5,6 +5,11 @@ var getErrorMessage = document.getElementById('error_message');
 var text;
 
 
+
+
+
+
+
 class Costumer {
     constructor(firstName, password, cart, order) {
         this.firstName = firstName;
@@ -136,6 +141,10 @@ var listCustomers = JSON.parse(localStorage.getItem('customerInformationList'));
 //var listCustomers = JSON.parse(localStorage.getItem('customerInformationList')) || [];
 console.log(listCustomers);
 
+
+
+
+
 /*Gør at errormessage bliver stående på siden og ikke forsvinder før man reloader.*/
 addEventListener("click", function(event){
     event.preventDefault();
@@ -158,5 +167,8 @@ function firstAccess(){
 }
 //Kalder funktionen så den bliver brugt.
 firstAccess();
+
+
+
 
 
