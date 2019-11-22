@@ -142,7 +142,7 @@ console.log(listCustomers);
 
 
 /*Gør at errormessage bliver stående på siden og ikke forsvinder før man reloader.*/
-addEventListener("click", function(event){
+addEventListener("submit", function(event){
     event.preventDefault();
 });
 
@@ -165,12 +165,31 @@ function firstAccess(){
 firstAccess();
 
 
+
+
 /* KR: Nu vil vi lave funktionen "gemKodeord", der bliver aktiveret, når man trykker på checkboksen.
 Dermed siger vi, at "if" kodeordets type er et 'password', så skal det laves om til typen 'text'. "else" vil kodeordet
 laves om tilbage til typen "password".
 Reference: https://www.geeksforgeeks.org/show-hide-password-using-javascript/
+
+Første gang vi prøvede at tilføje denne, gav det os et problem. Når man trykkede på checkboksen, blev funktionen nedenfor
+udført, men checkboksen blev ikke trykket ned. Først mistænkte vi, at det havde noget med scopet at gøre. Derfor flyttede
+vi funktionen ind nederst i vores customer class. Dette fik checkboksen til at kunne blive trykket ned, men så virkede
+funktionen ikke. Dette gav anledning til at tænke over, hvorfor dette var muligt. Vi mistænkte, at det havde noget at
+gøre med eventlisteneren, da denne ikke ændre noget inde i scopet for vores class.
+
+Defor kiggede vi nærmere på eventlisteneren og så dermed hurtigt, at den "lytter" efter typen "click" på daværende tidspunkt.
+Ved at kigge hurtigt på HTML'en kunne vi se, at både vores checkboks og vores to "submit" knapper alle tre har en funktion,
+der kører "onclick".
+
+Derfor startede vi ud med at prøve på at ville lave en stopPropagation(). (Fortæl og analysér dette)
+
+Efter lidt hurtigt code review fandt vi dog ud af, det ville spare kode, hvis vi bare fik eventlisteneren til at "lytte"
+efter typen "submit" i stedet. På denne måde ville de to knappers default (reloade siden) stadig blive preventet, mens
+det ikke ville gå ud over vores nye checkboks.
+
  */
-function gemKodeord() {
+function hidePwd() {
     var a = document.getElementById("pwd");
     if (a.type === "password") {
         a.type = "text";
