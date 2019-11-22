@@ -6,7 +6,7 @@
     <link rel="stylesheet" type="text/css" href="css_festival/style_festival.css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
-    <script src="Kurv.js"></script>
+
 </head>
 <body>
 
@@ -25,13 +25,13 @@
                 </ul>
             </li>
 
-        <form class="search-box">
-            <input class="search-txt" type="text" name="" placeholder="Type to search">
-            <a class="search-btn" href="#">
-                <!--søgeknap -->
-                <i class="fas fa-search"></i>
-            </a>
-        </form>
+            <form class="search-box">
+                <input class="search-txt" type="text" name="" placeholder="Type to search">
+                <a class="search-btn" href="#">
+                    <!--søgeknap -->
+                    <i class="fas fa-search"></i>
+                </a>
+            </form>
         </ul>
     </nav>
 </div>
@@ -56,7 +56,8 @@
                         Josef
                     </td>
                     <td>
-                        <input type="button" value="Add to cart" onclick="AddtoCart('Josef','Århus',120)"/>
+                        <!--input type="button" value="Add to cart" id="josefBtn" onclick="Cart.AddtoCart()"/-->
+                        <input class="buttons" type="button" value="Add to cart" id="Josef" />
                         <input type="button" value="Remove All" onclick="removeAll()">
                         <img src="../billeder/Linestander1.png" alt="#">
                     </td>
@@ -66,7 +67,8 @@
                         Hanna
                     </td>
                     <td>
-                        <input type="button" value="Add to cart" onclick="AddtoCart('Hanna','Odense',150)"/>
+                        <input class="buttons" type="button" value="Add to cart" id="Hanna" />
+                        <!--input class="buttons" type="button" value="Add to cart" id="hannaBtn" onclick="Cart.AddtoCart()"/-->
                         <input type="button" value="Remove All" onclick="removeAll()">
                         <img src="../billeder/Linestander2.png" alt="#">
                     </td>
@@ -76,7 +78,8 @@
                         Oliver
                     </td>
                     <td>
-                        <input type="button" value="Add to cart" onclick="AddtoCart('Oliver','København',175)"/>
+                        <input class="buttons" type="button" value="Add to cart" id="Oliver"/>
+                        <!--input class="buttons" type="button" value="Add to cart" id="OliverBtn" onclick="Cart.AddtoCart()"/-->
                         <input type="button" value="Remove All" onclick="removeAll()">
                         <img src="../billeder/Linestander3.png" alt="#">
                     </td>
@@ -105,7 +108,7 @@
                 </tbody>
                 <tfoot>
                 <tr>
-                    <td colspan="3" align="right" id="cart_total">
+                    <td colspan="3" align="right" id="cartTotal">
 
                     </td>
                 </tr>
@@ -117,4 +120,7 @@
 
 
 </body>
+
+<!-- Javascript link tag, er sat i bunden, så den loader HTML før JS. -->
+<script src="Kurv.js"></script>
 </html>
