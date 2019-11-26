@@ -5,6 +5,7 @@ var getErrorMessage = document.getElementById('error_message');
 var text;
 
 
+
 class Costumer {
     constructor(firstName, password, cart, order) {
         this.firstName = firstName;
@@ -28,6 +29,47 @@ class Costumer {
                 document.location.href='../../festival/festival.html';
                 return;
             }
+
+            /*
+            KR: Vi har prøvet at lave en "du har x antal forsøg tilbage" hvor den så til sidst gør, så man ikke kan skrive
+            i felterne for brugernavn og kodeord eller trykke på log ind knappen, hvis man har brugt alle sine forsøg.
+            Dog kan vi ikke få det til at fungere, da vi bruger en event.preventDefault(), så siden ikke bliver reloaded.
+            Dermed tæller vores attemp variabel ikke ned, da den er forbundet til, når man trykker på knappen log ind.
+            Vi har prøvet at flytte dette rundt, men det virker ikke...
+            Hvis vi ville ordne det ville det nok kræve, at vi fjernede vores preventDefault og fandt på en anden løsning
+            til vores problem med, at siden reloader og man derfor ikke kan se øverst oppe, hvad man har gjort forkert
+            (forkert brugernavn, kodeord eller begge).
+
+
+            var triesLeft = document.getElementById('triesLeft');
+            var text2;
+
+
+            // KR: Den følgende variable definerer antal loginforsøg.
+            // https://www.formget.com/javascript-login-form/
+            var attempt = 4;
+
+            else {
+                //KR: Hvis man skriver forkert brugernavn og/eller kodeord, vil der blive fjernet et loginforsøg.
+                attempt--;
+                if (attempt > 0) {
+                    text2 = `Du har ${attempt} forsøg tilbage`;
+                    triesLeft.innerHTML = text2;
+                    return;
+                }
+                // Hvis man har 0 forsøg tilbage vil boksene forsvinde.
+                if (attempt == 0) {
+                    document.getElementById("brugernavn").disabled = true;
+                    document.getElementById("kodeord").disabled = true;
+                    document.getElementById("login").disabled = true;
+
+                    text2 = 'Du har brugt alle dine forsøg, desvære';
+                    triesLeft.innerHTML = text2;
+                    return;
+                }
+            }
+
+             */
         }
         this.checkLogin();
         this.storeLogInInformation();
@@ -184,7 +226,7 @@ firstAccess();
 
 
 
-/* KR: Nu vil vi lave funktionen "gemKodeord", der bliver aktiveret, når man trykker på checkboksen.
+/* KR: Nu vil vi lave funktionen "hidePwd", der bliver aktiveret, når man trykker på checkboksen.
 Dermed siger vi, at "if" kodeordets type er et 'password', så skal det laves om til typen 'text'. "else" vil kodeordet
 laves om tilbage til typen "password".
 Reference: https://www.geeksforgeeks.org/show-hide-password-using-javascript/
