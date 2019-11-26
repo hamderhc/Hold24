@@ -7,11 +7,12 @@ var text;
 
 
 class Costumer {
-    constructor(firstName, password, cart, order) {
+    constructor(firstName, password, cart, order, email) {
         this.firstName = firstName;
         this.password = password;
         this.cart = cart;
         this.order = order;
+        this.email = email;
     }
 
     /*Opretter funktion til at logge ind med allerede oprettede brugere*/
@@ -124,6 +125,7 @@ class Costumer {
         // var registerNewUser = document.getElementById('newUser').value;
         var information = {
             username: document.getElementById('newUser').value,
+            email: document.getElementById('newEmail').value,
             pwd: document.getElementById('newPwd').value,
             verifyPwd: document.getElementById('verifyNewPwd').value
         };
@@ -137,11 +139,13 @@ class Costumer {
             listCustomers.push(information);
             localStorage.setItem('customerInformationList', JSON.stringify(listCustomers));
             alert("Du har nu oprettet en bruger");
+
         }
     }
     //SNL: Funktion til at validere de forskellige felter.
     static validateUser() {
         var registerNewUser = document.getElementById("newUser").value;
+        var registerNewEmail = document.getElementById("newEmail").value;
         var registerNewPwd = document.getElementById('newPwd').value;
         var verifyNewPassword = document.getElementById('verifyNewPwd').value;
         //var getErrorMessage = document.getElementById('error_message');
@@ -157,6 +161,32 @@ class Costumer {
             console.log(getErrorMessage.innerHTML)
             return false;
         }
+
+        //KR: https://github.com/mwndigi/exercise_7/blob/master/userRegistration.js
+        //var atAmount = registerNewEmail.includes("@");
+        // Variable that collects the index number of @/at in the email
+        var atpos = registerNewEmail.indexOf("@");
+        // Variable that collects the index of the last ./dot in the email
+        var dotpos = registerNewEmail.lastIndexOf(".");
+
+        // if statement that validates the typed in email
+        // atpos < 1 (at least 1 character before @)
+        // dotpos < atpos + 2 (must be characters between @ and .)
+        // dotpos + 2 >= registerNewEmail.length (must be characters after . eg .com)
+        if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= registerNewEmail.length) {
+            text = "Tast venligst en gyldig email ind";
+            getErrorMessage.innerHTML = text;
+            // console.log("Username cannot be empty, please choose one");
+            console.log(getErrorMessage.innerHTML)
+            return false;
+            /*
+            += "Den indtastede email skal være gyldig \n";
+            = false;
+             */
+        }
+
+
+
         //SNL: Brugernavnet må ikke udelukkende bestå af mellemrum. Trim() betyder
         if (registerNewUser.trim() == "") {
             text = "Brugernavnet kan ikke udelukkende bestå af mellemrum."

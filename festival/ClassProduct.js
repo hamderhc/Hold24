@@ -39,6 +39,7 @@ var cartTotalPrice;
 /* Der laves så en klasse som indeholder forskellige objekter af samme type. Disse objekter er attributter,
 da de referer til HTML elementer. Klassen indeholder attributterne: navn, lokation og pris for alle produkterne - specificeret
 i HTML (HCA)
+ */
 
 /*
 let inputJ = document.getElementById('qJosef');
@@ -57,10 +58,10 @@ lægger elementerne i Id'et "orderedProductsTblBody" i HTML (HCA)
     displayShoppingCart() {
         var orderedProductsTblBody = document.getElementById("orderedProductsTblBody");
         console.log(orderedProductsTblBody);
-        // Tester om der er mere end et produkt, ellers sletter den. 
-        /*while (orderedProductsTblBody.rows.length > 0) {
+        // Tester om der er mere end et produkt, ellers sletter den.
+        while (orderedProductsTblBody.rows.length > 0) {
             orderedProductsTblBody.deleteRow(0);
-        }*/
+        }
 
         //Variabel for prisen, som sættes til 0 (startpris). (JM)
         //Variabel som sætter startprisen til 0 (HCA)
@@ -233,3 +234,4 @@ function AddtoCart(){
 
 
 }
+
