@@ -37,11 +37,14 @@ da de referer til HTML elementer. Klassen indeholder attributterne: navn, lokati
 i HTML (HCA)
  */
 
+let inputJ = document.getElementById('qJosef');
+let quantityJosef = inputJ.value;
 class Product {
-    constructor(name, location, price) {
+    constructor(name, location, price, quantity) {
         this.name = name;
         this.location = location;
         this.price = price;
+        this.quantity = quantity;
     }
 // vi laver en funktion, som skal vise de valgte produkter i tabellen. (JM)
 /* Denne funktion gør at de valgte produkter vises i tabellen. Det specificeres ved at variabel orderedProductsTblBody
@@ -76,8 +79,8 @@ lægger elementerne i Id'et "orderedProductsTblBody" i HTML (HCA)
             var cellName = row.insertCell(0);
             var cellLocation = row.insertCell(1);
             var cellPrice = row.insertCell(2);
+            var cellQuantity = row.insertCell(3);
             cellPrice.align = "right";
-
 
 
             // Produkternes værdier i arrayet shoppingCart hentes med innerHTML. (JM)
@@ -87,6 +90,7 @@ lægger elementerne i Id'et "orderedProductsTblBody" i HTML (HCA)
             cellName.innerHTML = shoppingCart[Product].name;
             cellLocation.innerHTML = shoppingCart[Product].location;
             cellPrice.innerHTML = shoppingCart[Product].price;
+            cellQuantity.innerHTML = shoppingCart[Product].quantity;
             /* Den totale pris udregnes ved at variablen cartTotalPrice,
             som er nul får prisen for de produkter, som er i shoppingCart lagt oveni (JM)
              */
@@ -136,11 +140,11 @@ createObjects();
 // Der oprettes et seperat ID til hver af produkterne, som bliver kaldt med this.ID senere. (JM)
 
 //Hver af produkterne for nu et unikt ID som senere skal bruges til at identificere hvilket pordukt der bliver kaldt på (HCA)
-
+/*
 var josefBtn = document.getElementById('josefBtn');
 var hannaBtn = document.getElementById('hannaBtn');
 var oliverBtn = document.getElementById('oliverBtn');
-//console.log(josefBtn)
+//console.log(josefBtn)*/
 
 
 /*
@@ -153,9 +157,11 @@ der har et matchende ID med "clickedButtonID". Når produktet er fundet sendes d
 
 //der oprettes en tom variabel, som bruges til at klassificere det valgte produkt (pr. id) (JM)
 var clickedButtonID;
+var quantityID;
 
 // der oprettes en variabel, som kalder alle produkterne pr. knap. (JM)
 var buttons = document.getElementsByClassName("buttons");
+var quantityClass = document.getElementsByClassName('quantityClass');
 
 /* Gennem et 'for' loop kører den igennem alle produkterne, hvor den gennem 'this.id' henter det specifikke produkts ID,
  herefter sendes produktet til AddtoCart funktionen (JM) */
@@ -167,6 +173,29 @@ for(i=0; i < buttons.length; i++){
         AddtoCart();
     })
 }
+
+for(i=0; i < quantityClass.length; i++){
+    console.log("hi");
+    quantityClass[i].addEventListener("text", function(){
+        quantityID = this.id;
+        console.log(quantityID);
+        AddtoCart();
+    })
+}
+
+function quantityCal() {
+    for(i=0; i<allProducts.length; i++){
+        if (quantityID == shoppingCart[i].quantity){
+            shoppingCart.push(allProducts[i]);
+
+            //console.log("The price is " + shoppingCart[i].price);
+
+            allProducts[i].displayShoppingCart();
+
+        }
+    }
+}
+
 
 /* der loopes gennem alle produkterne, og den tager det produkt, som er lig med det id, som man har trykket på, hvorefter
 det valgte produkt pushes ind i det tomme 'shoppingCart' array. (JM) */
@@ -184,8 +213,6 @@ function AddtoCart(){
     Cart Class properties: allProducts, totalPrice
     Order Class properties: cart, Name
     Add properties to the customer class: cart, order
-
-
 
     */
 

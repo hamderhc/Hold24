@@ -77,3 +77,14 @@ body {
 }
 
 
+.wrapper #triesLeft{
+    margin-bottom: 20px;
+    padding: 0px;
+    background: indianred;
+    text-align: center;
+    font-size: 14px;
+    transition: all 0.5s ease; /*Gør at den kommer frem.*/
+
+}
+
+
