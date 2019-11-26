@@ -20,9 +20,9 @@
             <div class="input_field">
                 <input id="pwd" type="password" name="kodeord" placeholder="kodeord">
             </div>
-                <input type="checkbox" id="checkbox" onclick="gemKodeord()"/><label>Vis kodeord</label>
+                <input type="checkbox" id="checkbox" onclick="hidePwd()"/><label>Vis kodeord</label>
             <div class="trykHer">
-                <button id="btn" type="submit" onclick="Costumer.login()">Login</button>
+                <button id="btn" type="submit" onclick="Costumer.login(), Costumer.storeLogInInformation()">Login</button>
             </div>
         </form>
     <br>
