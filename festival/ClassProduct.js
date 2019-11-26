@@ -58,9 +58,9 @@ lægger elementerne i Id'et "orderedProductsTblBody" i HTML (HCA)
         var orderedProductsTblBody = document.getElementById("orderedProductsTblBody");
         console.log(orderedProductsTblBody);
         // Tester om der er mere end et produkt, ellers sletter den. 
-        while (orderedProductsTblBody.rows.length > 0) {
+        /*while (orderedProductsTblBody.rows.length > 0) {
             orderedProductsTblBody.deleteRow(0);
-        }
+        }*/
 
         //Variabel for prisen, som sættes til 0 (startpris). (JM)
         //Variabel som sætter startprisen til 0 (HCA)
@@ -178,7 +178,7 @@ for(i=0; i < buttons.length; i++){
         AddtoCart();
     })
 }
-
+/*
 for(i=0; i < quantityClass.length; i++){
     console.log("hi");
     quantityClass[i].addEventListener("text", function(){
@@ -187,7 +187,8 @@ for(i=0; i < quantityClass.length; i++){
         AddtoCart();
     })
 }
-/*
+
+
 function quantityCal() {
     for(i=0; i<allProducts.length; i++){
         if (quantityID == shoppingCart[i].quantity){
