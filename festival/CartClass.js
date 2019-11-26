@@ -10,6 +10,7 @@ for()
 //husk quantity objekt på product class
 
 function newCartObject (){
-    new Cart(allProducts, cartTotalPrice)
+    new Cart(allProducts, cartTotalPrice);
 }
 
+// Skal linkes til CurentUser

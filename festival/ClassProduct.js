@@ -31,20 +31,24 @@ var allProducts = [];
 var shoppingCart = [];
 
 
+//Denne variabel har vi oprettet til at bestemme den totale pris. Vi har placeret den udenfor scopet,
+// da vi skal kalde den senere, når vi skal oprette et new Cart objekt.
+var cartTotalPrice;
+
 //Vi laver en klasse, som indeholder attributterne navn, lokation, og pris for alle produkterne. (JM)
 /* Der laves så en klasse som indeholder forskellige objekter af samme type. Disse objekter er attributter,
 da de referer til HTML elementer. Klassen indeholder attributterne: navn, lokation og pris for alle produkterne - specificeret
 i HTML (HCA)
- */
 
+/*
 let inputJ = document.getElementById('qJosef');
-let quantityJosef = inputJ.value;
+let quantityJosef = inputJ.value; */
 class Product {
-    constructor(name, location, price, quantity) {
+    constructor(name, location, price) {
         this.name = name;
         this.location = location;
         this.price = price;
-        this.quantity = quantity;
+        //this.quantity = quantity;
     }
 // vi laver en funktion, som skal vise de valgte produkter i tabellen. (JM)
 /* Denne funktion gør at de valgte produkter vises i tabellen. Det specificeres ved at variabel orderedProductsTblBody
@@ -55,12 +59,13 @@ lægger elementerne i Id'et "orderedProductsTblBody" i HTML (HCA)
         console.log(orderedProductsTblBody);
         // Tester om der er mere end et produkt, ellers sletter den. 
         while (orderedProductsTblBody.rows.length > 0) {
-            orderedProductsTblBody.deleteRow(0); }
+            orderedProductsTblBody.deleteRow(0);
+        }
 
         //Variabel for prisen, som sættes til 0 (startpris). (JM)
         //Variabel som sætter startprisen til 0 (HCA)
 
-       var cartTotalPrice = 0;
+       cartTotalPrice = 0;
 
         //Vi laver et loop, som indsætter de forskellige værdier for produkterne (JM)
         /*Dette for loop henter værdierne fra klassen Product og indsætter dem i shoppingCart, som var det array, der
@@ -79,7 +84,7 @@ lægger elementerne i Id'et "orderedProductsTblBody" i HTML (HCA)
             var cellName = row.insertCell(0);
             var cellLocation = row.insertCell(1);
             var cellPrice = row.insertCell(2);
-            var cellQuantity = row.insertCell(3);
+            //var cellQuantity = row.insertCell(3);
             cellPrice.align = "right";
 
 
@@ -90,7 +95,7 @@ lægger elementerne i Id'et "orderedProductsTblBody" i HTML (HCA)
             cellName.innerHTML = shoppingCart[Product].name;
             cellLocation.innerHTML = shoppingCart[Product].location;
             cellPrice.innerHTML = shoppingCart[Product].price;
-            cellQuantity.innerHTML = shoppingCart[Product].quantity;
+            //cellQuantity.innerHTML = shoppingCart[Product].quantity;
             /* Den totale pris udregnes ved at variablen cartTotalPrice,
             som er nul får prisen for de produkter, som er i shoppingCart lagt oveni (JM)
              */
@@ -182,7 +187,7 @@ for(i=0; i < quantityClass.length; i++){
         AddtoCart();
     })
 }
-
+/*
 function quantityCal() {
     for(i=0; i<allProducts.length; i++){
         if (quantityID == shoppingCart[i].quantity){
@@ -195,7 +200,7 @@ function quantityCal() {
         }
     }
 }
-
+*/
 
 /* der loopes gennem alle produkterne, og den tager det produkt, som er lig med det id, som man har trykket på, hvorefter
 det valgte produkt pushes ind i det tomme 'shoppingCart' array. (JM) */
@@ -204,7 +209,6 @@ function AddtoCart(){
     console.log("error");
     console.log(allProducts);
     console.log(shoppingCart);
-    console.log(cartTotalPrice)
     console.log(clickedButtonID);
 
     /*new Cart(allProducts, cartTotalPrice)
@@ -228,4 +232,3 @@ function AddtoCart(){
 
 
 }
-

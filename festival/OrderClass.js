@@ -18,3 +18,8 @@ if(atpos<1 || dotpos<atpos+2 || dotpos+2>=email.length) {
     alertMessage += "Den indtastede email skal være gyldig \n";
     alertBoolean = false;
 }
+
+
+
+// Skal loope gennem Costumer list - matche current user - derefter kører et costumer[i].Cart ... loop.
+// Herefter er der lavet en confirm order button.
