@@ -171,10 +171,11 @@ for(i=0; i < buttons.length; i++){
 /* der loopes gennem alle produkterne, og den tager det produkt, som er lig med det id, som man har trykket på, hvorefter
 det valgte produkt pushes ind i det tomme 'shoppingCart' array. (JM) */
 function AddtoCart(){
+    //newCartnew: Cart(allProducts, cartTotalPrice)
     console.log("error");
     console.log(allProducts);
     console.log(shoppingCart);
-    //console.log(cartTotalPrice)
+    console.log(cartTotalPrice)
     console.log(clickedButtonID);
 
     /*new Cart(allProducts, cartTotalPrice)
