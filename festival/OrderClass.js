@@ -1,12 +1,10 @@
 class Order {
-    constructor(Cart, email) {
-        this.Cart = Cart;
-        this.email = email;
+    constructor(Cart, pris, currentUser) {
+        this.cart = cart; //arraylist med alle produktene kunden har bestillt
+        this.currentUser = currentUserser //bruger logget inn ;
     }
 
 }
-
-
 
 
 
