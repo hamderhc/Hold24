@@ -8,9 +8,6 @@ class Cart {
 
 //husk quantity objekt på product class
 
-
-
-
 function newCartObject (){
     new Cart(allProducts, cartTotalPrice)
 }

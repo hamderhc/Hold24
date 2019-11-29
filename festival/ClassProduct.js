@@ -19,7 +19,6 @@ Hvorfor har vi valgt at gøre det sådan?
 
 
 
-
 //Vi laver et tomt array til at holde alle produkterne (JM)
 //Variabel allProducts er et tomt array som skal indeholde alle produkterne (HCA)
 

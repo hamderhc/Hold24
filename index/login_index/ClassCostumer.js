@@ -5,7 +5,6 @@ var getErrorMessage = document.getElementById('error_message');
 var text;
 
 
-
 class Costumer {
     constructor(firstName, password, cart, order, email) {
         this.firstName = firstName;
@@ -194,8 +193,6 @@ class Costumer {
             = false;
              */
         }
-
-
 
         //SNL: Brugernavnet må ikke udelukkende bestå af mellemrum. Trim() betyder
         if (registerNewUser.trim() == "") {
