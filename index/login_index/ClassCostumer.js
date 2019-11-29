@@ -122,6 +122,8 @@ class Costumer {
     /*Opretter en funktion til at oprette nye brugere*/
     static registerNewUser() {
         //firstName, password, cart, order, email
+        //SNL: før oprettede vi nye objekter til at oprette en ny bruger, men vu bruger nu istedet vores klasse til dette, derfor hedder nye oprettede
+        //brugere stadig firstname i localStorage.
         var username = document.getElementById('newUser').value;
         var pwd = document.getElementById('newPwd').value;
         var information = new Costumer(username, pwd, null, null, null)
@@ -133,7 +135,8 @@ class Costumer {
               username: document.getElementById('newUser').value,
               email: document.getElementById('newEmail').value,
               pwd: document.getElementById('newPwd').value,
-              verifyPwd: document.getElementById('verifyNewPwd').value
+              verifyPwd: document.getElementById('verifyNewPwd').value - vi benyttede slet ikke denne. da vi oprettede en ny variabel i validateUser til
+              valideringen af password.
           };*/
 
         //Hvis funktionen validateUser returnerer en fejl vil der ikke blive oprettet en ny bruger.
@@ -227,7 +230,7 @@ class Costumer {
 }
 
 /*SNL: Vi laver en variabel for alle costumers. Vi skal hente alt der ligger i localStorage i vores "boks" listcostumers costumerInformationList.
-       Json Parse gør at den bliver hentet som et array */
+       JSON.parse() gør at den bliver hentet som et array */
 var listCustomers = JSON.parse(localStorage.getItem('customerInformationList'));
 //var listCustomers = JSON.parse(localStorage.getItem('customerInformationList')) || [];
 console.log(listCustomers);

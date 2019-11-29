@@ -202,7 +202,6 @@ var quantityClass = document.getElementsByClassName('quantityClass');
 /* Gennem et 'for' loop kører den igennem alle produkterne, hvor den gennem 'this.id' henter det specifikke produkts ID,
  herefter sendes produktet til AddtoCart funktionen (JM) */
 for(i=0; i < buttons.length; i++){
-    console.log("hi");
     buttons[i].addEventListener("click", function(){
         clickedButtonID = this.id;
         console.log(clickedButtonID);
