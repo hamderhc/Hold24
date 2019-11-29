@@ -231,5 +231,10 @@ function AddtoCart(){
         }
     }
 
-
 }
+function toOrder() {
+    Order.push(shoppingCart);
+    console.log(toOrder);
+}
+
+

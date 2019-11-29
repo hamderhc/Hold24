@@ -4,8 +4,6 @@ var passwo = document.getElementById('pwd'); /*Henter data fra html kodeord boks
 var getErrorMessage = document.getElementById('error_message');
 var text;
 
-
-
 class Costumer {
     constructor(firstName, password, cart, order) {
         this.firstName = firstName;
@@ -75,14 +73,17 @@ class Costumer {
         this.storeLogInInformation();
     }
 
+    //SNL: Funktion som skal gemme, hvilken user der er logget ind.
+    /*SNL: Vi opretter et array som vi pusher vores objekt storeUser ind i. Herefter laver vi et for loop som looper gennem vores listCostumers array
+    og tjekker om det der er logget ind er ens med en af de allerede oprettede brugere (firstname). Det samme gør vi med nye registrerede
+    brugere (username). Hvis det findes skal den pushe informationen til vores tomme array storeLogIn og herefter skal det pushes til localstorage.*/
     static storeLogInInformation() {
         storeLogIn = [];
         var test = document.getElementById('myUsername').value;
 
         var storeUser = {
             usernameLoggedin: document.getElementById('myUsername').value,
-           // productName: document
-           // product
+
         };
 
         for(var i = 0; i< listCustomers.length; i++) {
@@ -193,10 +194,11 @@ class Costumer {
 }
 
 /*SNL: Vi laver en variabel for alle costumers. Vi skal hente alt der ligger i localStorage i vores "boks" listcostumers costumerInformationList.
-       Jason Parse gør at den bliver hentet som et array */
+       Json Parse gør at den bliver hentet som et array */
 var listCustomers = JSON.parse(localStorage.getItem('customerInformationList'));
 //var listCustomers = JSON.parse(localStorage.getItem('customerInformationList')) || [];
 console.log(listCustomers);
+
 
 var storeLogIn = JSON.parse(localStorage.getItem('currentLoggedInUser'));
 
@@ -205,10 +207,11 @@ addEventListener("submit", function(event){
     event.preventDefault();
 });
 
-/*Opretter en funktion til første gang der logges ind. If statement, som tjekker om listcostumers er tomt.
-  Hvis den er det, skal den lave den til et tomt array, hvor de faste brugere bliver pushet ind i.*/
-function firstAccess(){
-    if(listCustomers == null){
+/*SNL: Opretter en funktion til første gang der logges ind. If statement, som tjekker om listcostumers er tomt.
+  Hvis den er det, skal den lave den til et tomt array, hvor de faste brugere bliver pushet ind i.
+  Vi blev nødt til at oprette denne funktion, da der inden blev oprettet dobbelt med brugere i localstorage hver gang man oprettede en ny bruger.*/
+function firstAccess() {
+    if (listCustomers == null) {
         listCustomers = []
         //Opretter nye faste bruger som altid kan logge ind.
         listCustomers.push(new Costumer("Stine", "123456789"));
@@ -220,9 +223,9 @@ function firstAccess(){
         console.log(listCustomers)
     }
 }
+
 //Kalder funktionen så den bliver brugt.
 firstAccess();
-
 
 
 

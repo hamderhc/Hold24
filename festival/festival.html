@@ -88,13 +88,13 @@
             <table cellpadding="4" cellspacing="4" border="1" id="orderedProductsTbl">
                 <thead>
                 <tr>
-                    <td>
+                    <td id="nameLS">
                         Navn
                     </td>
-                    <td>
+                    <td id="locationLS">
                         Lokation
                     </td>
-                    <td>
+                    <td id="priceLS">
                         Pris
                     </td>
                 </tr>
@@ -108,7 +108,7 @@
 
                     </td>
                     <td>
-                        <a href="order.html"><input type="submit" class="addToCartBTN" value="Gå til kurv" onsubmit=""></a>
+                        <a href="order.html"><input type="submit" class="addToCartBTN" value="Gå til kurv" onclick="toOrder()"></a>
 
 
                     </td>
@@ -123,4 +123,5 @@
 
 <!-- Javascript link tag, er sat i bunden, så den loader HTML før JS. -->
 <script src="ClassProduct.js"></script>
+<script src="../index/login_index/DBcostumer.js"></script>
 </html>

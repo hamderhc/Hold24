@@ -1,9 +1,8 @@
 class Order {
-    constructor(cart, email) {
-        this.cart = cart;
-        this.email = email;
+    constructor(Cart, pris, currentUser) {
+        this.cart = cart; //arraylist med alle produktene kunden har bestillt
+        this.currentUser = currentUserser //bruger logget inn ;
     }
-
 }
 
 // Variable that collects the index number of @/at in the email
