@@ -140,6 +140,7 @@ class Product {
     }
 }
 
+
 // en funktion til at slette alt, men sletter ikke arrayet - kun det visuelle. (JM)
 /*
 Denne funktion skal slette alt der er blevet lagt i kurven. Den sætter indholdet i de 2 valgte elemtenter til blankt.
@@ -260,8 +261,9 @@ function AddtoCart(){
             //console.log("The price is " + shoppingCart[i].price);
 
             allProducts[i].displayShoppingCart();
-            customerInformationList[currentUser].cart = shoppingCart
-            localStorage.setItem("customerInformationList", JSON.stringify(customerInformationList))
+            customerInformationList[currentUser].cart = shoppingCart;
+            localStorage.setItem("customerInformationList", JSON.stringify(customerInformationList));
+
            // localStorage.setItem("shoppingCart", JSON.stringify(shoppingCart))
 
         }

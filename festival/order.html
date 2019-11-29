@@ -7,9 +7,9 @@
     <script src="ClassProduct.js"></script>
     <link rel="stylesheet" type="text/css" href="css_festival/style_festival.css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">A
+    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
 </head>
-<body>
+<body onload="showCart()">
 
 <!-- billede logo -->
 <a href="../index/index.html"><img  src="../billeder/logoSTL.png" id="logo"></a>
@@ -31,9 +31,9 @@
     </nav>
 </div>
 
-
+<h2 style="margin-left: 46.5%">Din kurv:</h2>
 <!-- Nedenstående skal ændres, så det får det valgte produkter ind. Knap skal ændres til betal/køb nu. -->
-<table cellpadding="4" cellspacing="4" border="1" id="orderedProductsTbl">
+<table cellpadding="4" cellspacing="4" border="1" id="orderedProductsTbl" style="margin-left: 42%">
     <thead>
     <tr>
         <td>
@@ -56,10 +56,27 @@
 
         </td>
         <td>
-            <a href="order.html"><input type="submit" class="addToCartBTN" value="Køb nu" onsubmit=""></a>
+            <input type="button" value="Køb nu" onclick="final()">
         </td>
     </tr>
     </tfoot>
+
+
+    <br/>
+    <br/>
+
+
 </table>
+</table>
+
+
+
+<br/>
+<br/>
+
+<p id="fuckingFinal">
+
+</p>
+
 </body>
 </html>
