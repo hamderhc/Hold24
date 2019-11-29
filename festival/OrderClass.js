@@ -1,10 +1,11 @@
 class Order {
-    constructor(cart, email) {
-        this.cart = cart;
+    constructor(Cart, email) {
+        this.Cart = Cart;
         this.email = email;
     }
 
 }
+
 
 // Variable that collects the index number of @/at in the email
 var atpos=email.indexOf("@");

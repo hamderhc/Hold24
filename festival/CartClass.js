@@ -17,7 +17,7 @@ function newCartObject (){
 
 // Skal linkes til CurentUser
 
-
+}
 
 /*
 for(i=0; i < Costumer.storeLogInInformation(); i++){
@@ -26,7 +26,7 @@ for(i=0; i < Costumer.storeLogInInformation(); i++){
 
 
 //Save to localStorage
-var shoppingCartString = JSON.stringify(shoppingCart);
+var shoppingCartString = JSON.stringify(shoppingCart[Product]);
 localStorage.setItem(Cart, shoppingCartString);
 
 var totalPriceString = JSON.stringify(cartTotalPrice);
