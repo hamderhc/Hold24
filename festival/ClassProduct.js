@@ -28,12 +28,42 @@ var allProducts = [];
 
 //Vi laver et tomt array til at holde på de produkter, som skal i kurven (JM)
 // Variabel shoppingCart er et tomt array som  skal indeholde alle de valgte produkter i en indkøbskurv (HCA)
+
 var shoppingCart = [];
 
 
 //Denne variabel har vi oprettet til at bestemme den totale pris. Vi har placeret den udenfor scopet,
 // da vi skal kalde den senere, når vi skal oprette et new Cart objekt.
 var cartTotalPrice;
+
+/*if(localStorage.getItem("shoppingCart") == null){
+    shoppingCart = []
+} else {
+    shoppingCart = JSON.parse(localStorage.getItem("shoppingCart"))
+}*/
+
+var currentUser = ""
+var customerInformationList = JSON.parse(localStorage.getItem("customerInformationList"))
+console.log(customerInformationList[0].firstName)
+var currentLoggedInUser = JSON.parse(localStorage.getItem("currentLoggedInUser"))
+
+
+function checkCurrentUser(){
+    for(i = 0; i < customerInformationList.length; i++){
+        if(customerInformationList[i].firstName == currentLoggedInUser[0].usernameLoggedin){
+            currentUser = i
+        }
+    }
+}
+checkCurrentUser()
+
+console.log(currentUser)
+
+if(customerInformationList[currentUser].cart == null){
+    shoppingCart = [];
+} else {
+    shoppingCart = customerInformationList[currentUser].cart
+}
 
 //Vi laver en klasse, som indeholder attributterne navn, lokation, og pris for alle produkterne. (JM)
 /* Der laves så en klasse som indeholder forskellige objekter af samme type. Disse objekter er attributter,
@@ -51,9 +81,9 @@ class Product {
         //this.quantity = quantity;
     }
 // vi laver en funktion, som skal vise de valgte produkter i tabellen. (JM)
-/* Denne funktion gør at de valgte produkter vises i tabellen. Det specificeres ved at variabel orderedProductsTblBody
-lægger elementerne i Id'et "orderedProductsTblBody" i HTML (HCA)
- */
+    /* Denne funktion gør at de valgte produkter vises i tabellen. Det specificeres ved at variabel orderedProductsTblBody
+    lægger elementerne i Id'et "orderedProductsTblBody" i HTML (HCA)
+     */
     displayShoppingCart() {
         var orderedProductsTblBody = document.getElementById("orderedProductsTblBody");
         console.log(orderedProductsTblBody);
@@ -66,7 +96,7 @@ lægger elementerne i Id'et "orderedProductsTblBody" i HTML (HCA)
         //Variabel for prisen, som sættes til 0 (startpris). (JM)
         //Variabel som sætter startprisen til 0 (HCA)
 
-       cartTotalPrice = 0;
+        cartTotalPrice = 0;
 
         //Vi laver et loop, som indsætter de forskellige værdier for produkterne (JM)
         /*Dette for loop henter værdierne fra klassen Product og indsætter dem i shoppingCart, som var det array, der
@@ -207,6 +237,7 @@ function quantityCal() {
 /* der loopes gennem alle produkterne, og den tager det produkt, som er lig med det id, som man har trykket på, hvorefter
 det valgte produkt pushes ind i det tomme 'shoppingCart' array. (JM) */
 function AddtoCart(){
+    //shoppingCart = localStorage
     //newCartnew: Cart(allProducts, cartTotalPrice)
     console.log("error");
     console.log(allProducts);
@@ -229,8 +260,21 @@ function AddtoCart(){
             //console.log("The price is " + shoppingCart[i].price);
 
             allProducts[i].displayShoppingCart();
+            customerInformationList[currentUser].cart = shoppingCart
+            localStorage.setItem("customerInformationList", JSON.stringify(customerInformationList))
+           // localStorage.setItem("shoppingCart", JSON.stringify(shoppingCart))
+
         }
     }
 
-
+    //savetoLS()
 }
+
+
+/*function savetoLS(){
+    var tabelID = document.getElementById("orderedProductsTblBody")
+    console.log(JSON.stringify(tabelID))
+    localStorage.setItem("tableinfo", JSON.stringify(tabelID))
+}*/
+
+

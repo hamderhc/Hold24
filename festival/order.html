@@ -5,8 +5,61 @@
     <title>Order</title>
     <script src="CartClass.js"></script>
     <script src="ClassProduct.js"></script>
+    <link rel="stylesheet" type="text/css" href="css_festival/style_festival.css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">A
 </head>
 <body>
 
+<!-- billede logo -->
+<a href="../index/index.html"><img  src="../billeder/logoSTL.png" id="logo"></a>
+
+<!-- navigationsbar -->
+<div class="menu">
+    <nav>
+        <ul>
+            <li> <a href="../index/login_index/login.html">Logud</a></li>
+
+            <form class="search-box">
+                <input class="search-txt" type="text" name="" placeholder="Type to search">
+                <a class="search-btn" href="#">
+                    <!--søgeknap -->
+                    <i class="fas fa-search"></i>
+                </a>
+            </form>
+        </ul>
+    </nav>
+</div>
+
+
+<!-- Nedenstående skal ændres, så det får det valgte produkter ind. Knap skal ændres til betal/køb nu. -->
+<table cellpadding="4" cellspacing="4" border="1" id="orderedProductsTbl">
+    <thead>
+    <tr>
+        <td>
+            Navn
+        </td>
+        <td>
+            Lokation
+        </td>
+        <td>
+            Pris
+        </td>
+    </tr>
+    </thead>
+    <tbody id="orderedProductsTblBody">
+
+    </tbody>
+    <tfoot>
+    <tr>
+        <td colspan="3" align="right" id="cartTotal">
+
+        </td>
+        <td>
+            <a href="order.html"><input type="submit" class="addToCartBTN" value="Køb nu" onsubmit=""></a>
+        </td>
+    </tr>
+    </tfoot>
+</table>
 </body>
 </html>

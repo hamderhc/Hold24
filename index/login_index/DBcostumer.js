@@ -17,8 +17,8 @@ class Costumer {
 
     /*Opretter funktion til at logge ind med allerede oprettede brugere*/
     static login() {
-       // var userInput = document.getElementById('myUsername').value; /*Henter data fra html brugernavn boks.*/
-       // var passwo = document.getElementById('pwd').value; /*Henter data fra html kodeord boks.*/
+        // var userInput = document.getElementById('myUsername').value; /*Henter data fra html brugernavn boks.*/
+        // var passwo = document.getElementById('pwd').value; /*Henter data fra html kodeord boks.*/
 
         /*Når du logger ind tjekker den om brugernavn eksisterer og om password er korrekt.*/
         for (var i = 0; i < listCustomers.length; i++) {
@@ -82,8 +82,8 @@ class Costumer {
 
         var storeUser = {
             usernameLoggedin: document.getElementById('myUsername').value,
-           // productName: document
-           // product
+            // productName: document
+            // product
         };
 
         for(var i = 0; i< listCustomers.length; i++) {
@@ -121,14 +121,20 @@ class Costumer {
     }
     /*Opretter en funktion til at oprette nye brugere*/
     static registerNewUser() {
+        //firstName, password, cart, order, email
+        var username = document.getElementById('newUser').value;
+        var pwd = document.getElementById('newPwd').value;
+        var information = new Costumer(username, pwd, null, null, null)
         /*Opretter variable til boksene i html*/
         // var registerNewUser = document.getElementById('newUser').value;
-        var information = {
-            username: document.getElementById('newUser').value,
-            email: document.getElementById('newEmail').value,
-            pwd: document.getElementById('newPwd').value,
-            verifyPwd: document.getElementById('verifyNewPwd').value
-        };
+
+        //IMPLEMENT NEW CUSTOMER
+        /* var information = {
+              username: document.getElementById('newUser').value,
+              email: document.getElementById('newEmail').value,
+              pwd: document.getElementById('newPwd').value,
+              verifyPwd: document.getElementById('verifyNewPwd').value
+          };*/
 
         //Hvis funktionen validateUser returnerer en fejl vil der ikke blive oprettet en ny bruger.
         //Men er der ingen fejl vil den pushe vores information ind i vores tomme array øverst.
@@ -241,9 +247,9 @@ function firstAccess(){
     if(listCustomers == null){
         listCustomers = []
         //Opretter nye faste bruger som altid kan logge ind.
-        listCustomers.push(new Costumer("Stine", "123456789"));
-        listCustomers.push(new Costumer("Rama", "111111111"));
-        listCustomers.push(new Costumer("Jonathan", "999999999"));
+        listCustomers.push(new Costumer("Stine", "123456789", null, null, null));
+        listCustomers.push(new Costumer("Rama", "111111111", null, null, null));
+        listCustomers.push(new Costumer("Jonathan", "999999999", null, null, null));
         /*Vi opretter en "boks" i localstorage som hedder listcostumers som har "nøglen" til at komme ind i boksen - "customerInformationList"
          - herefter siger vi at alle costumers skal laves om fra et array til en string når de sendes til localstorage.*/
         localStorage.setItem('customerInformationList', JSON.stringify(listCustomers))
