@@ -1,8 +1,8 @@
 
 class Cart {
-    constructor(shoppingCart, cartTotalPrice){
-        this.shoppingCart = shoppingCart;
-        this.cartTotalPrice = cartTotalPrice;
+    constructor(allProducts, totalPrice){
+        this.allProducts = allProducts;
+        this.totalPrice = totalPrice;
     }
 }
 
@@ -12,7 +12,7 @@ class Cart {
 
 
 function newCartObject (){
-    new Cart(shoppingCart, cartTotalPrice);
+    new Cart(allProducts, cartTotalPrice)
 }
 
 // Skal linkes til CurentUser
