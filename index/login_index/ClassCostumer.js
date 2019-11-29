@@ -5,7 +5,6 @@ var getErrorMessage = document.getElementById('error_message');
 var text;
 
 
-
 class Costumer {
     constructor(firstName, password, cart, order, email) {
         this.firstName = firstName;
@@ -24,13 +23,12 @@ class Costumer {
         for (var i = 0; i < listCustomers.length; i++) {
             /*Hvis brugernavnet(fornavnet) og kodeordet er defineret i listcostumers bliver man logget ind.
             Eller hvis de faste objekter vi opretter nederst er i listcostumers bliver disse logget ind.*/
-            if (userInput.value == listCustomers[i].username && passwo.value == listCustomers[i].pwd || userInput.value == listCustomers[i].firstName && passwo.value == listCustomers[i].password) {
+            if (userInput.value == listCustomers[i].firstName && passwo.value == listCustomers[i].password) {
                 //    alert("You have been logged in as " + userInput)
                 console.log("Du er logget på som " + userInput);
                 document.location.href='../../festival/festival.html';
                 return;
             }
-
             /*
             KR: Vi har prøvet at lave en "du har x antal forsøg tilbage" hvor den så til sidst gør, så man ikke kan skrive
             i felterne for brugernavn og kodeord eller trykke på log ind knappen, hvis man har brugt alle sine forsøg.
@@ -86,12 +84,10 @@ class Costumer {
 
         var storeUser = {
             usernameLoggedin: document.getElementById('myUsername').value,
-           // productName: document
-           // product
         };
 
         for(var i = 0; i< listCustomers.length; i++) {
-            if(listCustomers[i].firstName == test || listCustomers[i].username == test) {
+            if(listCustomers[i].firstName == test) {
                 storeLogIn.push(storeUser);
                 localStorage.setItem('currentLoggedInUser', JSON.stringify(storeLogIn));
             }
@@ -195,9 +191,7 @@ class Costumer {
              */
         }
 
-
-
-        //SNL: Brugernavnet må ikke udelukkende bestå af mellemrum. Trim() betyder
+        //SNL: Brugernavnet må ikke udelukkende bestå af mellemrum. Trim() betyder ingen mellemrum
         if (registerNewUser.trim() == "") {
             text = "Brugernavnet kan ikke udelukkende bestå af mellemrum."
             getErrorMessage.innerHTML = text;
@@ -264,9 +258,6 @@ function firstAccess() {
 //Kalder funktionen så den bliver brugt.
 firstAccess();
 
-
-
-
 /* KR: Nu vil vi lave funktionen "hidePwd", der bliver aktiveret, når man trykker på checkboksen.
 Dermed siger vi, at "if" kodeordets type er et 'password', så skal det laves om til typen 'text'. "else" vil kodeordet
 laves om tilbage til typen "password".
@@ -289,6 +280,7 @@ efter typen "submit" i stedet. På denne måde ville de to knappers default (rel
 det ikke ville gå ud over vores nye checkboks.
 
  */
+
 function hidePwd() {
     var a = document.getElementById("pwd");
     if (a.type === "password") {
