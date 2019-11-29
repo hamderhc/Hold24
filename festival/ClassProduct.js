@@ -57,10 +57,11 @@ lægger elementerne i Id'et "orderedProductsTblBody" i HTML (HCA)
     displayShoppingCart() {
         var orderedProductsTblBody = document.getElementById("orderedProductsTblBody");
         console.log(orderedProductsTblBody);
-        // Tester om der er mere end et produkt, ellers sletter den. 
-        /*while (orderedProductsTblBody.rows.length > 0) {
+        // Tester om der er mere end et produkt, ellers sletter den.
+        while (orderedProductsTblBody.rows.length > 0) {
             orderedProductsTblBody.deleteRow(0);
-        }*/
+        }
+
 
         //Variabel for prisen, som sættes til 0 (startpris). (JM)
         //Variabel som sætter startprisen til 0 (HCA)
@@ -133,7 +134,7 @@ function removeAll(){
 function createObjects(){
 
     allProducts.push(new Product("Josef", "Århus", 120));
-    allProducts.push(new Product("Oliver", "Copenhagen", 140));
+    allProducts.push(new Product("Oliver", "København", 140));
     allProducts.push(new Product("Hanna", "Odense", 130));
     for(i=0; i < allProducts.length; i++){
         allProducts[i].displayShoppingCart();

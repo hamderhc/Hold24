@@ -1,8 +1,8 @@
 
 class Cart {
-    constructor(shoppingCart, cartTotalPrice){
-        this.shoppingCart = shoppingCart;
-        this.cartTotalPrice = cartTotalPrice;
+    constructor(allProducts, totalPrice){
+        this.allProducts = allProducts;
+        this.totalPrice = totalPrice;
     }
 }
 
@@ -12,12 +12,12 @@ class Cart {
 
 
 function newCartObject (){
-    new Cart(shoppingCart, cartTotalPrice);
+    new Cart(allProducts, cartTotalPrice)
 }
 
 // Skal linkes til CurentUser
 
-
+}
 
 /*
 for(i=0; i < Costumer.storeLogInInformation(); i++){
@@ -26,7 +26,7 @@ for(i=0; i < Costumer.storeLogInInformation(); i++){
 
 
 //Save to localStorage
-var shoppingCartString = JSON.stringify(shoppingCart);
+var shoppingCartString = JSON.stringify(shoppingCart[Product]);
 localStorage.setItem(Cart, shoppingCartString);
 
 var totalPriceString = JSON.stringify(cartTotalPrice);
