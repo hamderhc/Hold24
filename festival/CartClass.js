@@ -78,7 +78,7 @@ function showCart() {
 
 }
 
-
+/*
 function final() {
     //document.getElementById('fuckingFinal').innerHTML = seFProduct;
 
@@ -86,9 +86,11 @@ function final() {
     for (i = 0; i < shoppingCart.length; i++){
         sum += shoppingCart;
     }
-    document.getElementById('fuckingFinal').innerHTML = sum;
+    document.getElementById('freakingFinal').innerHTML = sum;
 }
 
+
+ */
 
 
 
@@ -123,3 +125,23 @@ localStorage.setItem(Cart, totalPriceString);
 Vi mangler at tilføje vores property, cartTotalPrice til localStorage for vores Cart-class. Mikkel kan måske hjælpe med dette?
 Hvis ikke, reflekter over, hvad der går galt, hvorfor og hvad man kunne gøre af alternativer for at få det til at virke.
  */
+
+
+
+/*
+KR: Hvis brugernavnet man skriver ind ved bestilling er det samme som currentLoggedInUser's username, så får man nedstående alert.
+Hvis ikke det er rigtigt, prøv igen.
+ */
+var brugernavnTjek = document.getElementById('brugernavnTjek');
+
+function bestil() {
+    if(currentLoggedInUser[0].usernameLoggedin == brugernavnTjek.value){
+            alert("Tak for din bestilling. Du vil nu blive ført tilbage til forsiden");
+            //document.open(login.html);
+        //KR: Reload siden bagefter (mest af alt så den eventuelle fejlmeddelelse nedenfor bliver slettet.
+        document.location.reload(true);
+    }
+        else{
+            document.getElementById('sorry').innerHTML = "Forkert brugernavn. Prøv igen"
+    }
+}
