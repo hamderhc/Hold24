@@ -74,7 +74,6 @@ class Costumer {
 
         }
         this.checkLogin();
-        this.storeLogInInformation();
     }
 
     //SNL: Funktion som skal gemme, hvilken user der er logget ind.
@@ -129,7 +128,7 @@ class Costumer {
         //brugere stadig firstname i localStorage.
         var username = document.getElementById('newUser').value;
         var pwd = document.getElementById('newPwd').value;
-        var information = new Costumer(username, pwd, null, null, null)
+        var information = new Costumer(username, pwd, null, null, null);
         /*Opretter variable til boksene i html*/
         // var registerNewUser = document.getElementById('newUser').value;
 
