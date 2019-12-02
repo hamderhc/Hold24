@@ -137,11 +137,11 @@ var brugernavnTjek = document.getElementById('brugernavnTjek');
 function bestil() {
     if(currentLoggedInUser[0].usernameLoggedin == brugernavnTjek.value){
             alert("Tak for din bestilling. Du vil nu blive ført tilbage til forsiden");
-            //document.open(login.html);
+            document.location.href = '../index/index.html';
         //KR: Reload siden bagefter (mest af alt så den eventuelle fejlmeddelelse nedenfor bliver slettet.
-        document.location.reload(true);
+        //document.location.reload(true);
     }
         else{
-            document.getElementById('sorry').innerHTML = "Forkert brugernavn. Prøv igen"
+            document.getElementById ('sorry').innerHTML = "Forkert brugernavn. Prøv igen"
     }
 }
