@@ -21,8 +21,7 @@ class Costumer {
 
         /*Når du logger ind tjekker den om brugernavn eksisterer og om password er korrekt.*/
         for (var i = 0; i < listCustomers.length; i++) {
-            /*Hvis brugernavnet(fornavnet) og kodeordet er defineret i listcostumers bliver man logget ind.
-            Eller hvis de faste objekter vi opretter nederst er i listcostumers bliver disse logget ind.*/
+            //Hvis brugernavnet(fornavnet) og kodeordet er defineret i listcostumers bliver man logget ind
             if (userInput.value == listCustomers[i].firstName && passwo.value == listCustomers[i].password) {
                 //    alert("You have been logged in as " + userInput)
                 console.log("Du er logget på som " + userInput);
@@ -166,32 +165,8 @@ class Costumer {
         if (registerNewUser == null || registerNewUser == "") {
             text = "Brugernavnet kan ikke være tomt, vælg venligst et";
             getErrorMessage.innerHTML = text;
-            // console.log("Username cannot be empty, please choose one");
             console.log(getErrorMessage.innerHTML)
             return false;
-        }
-
-        //KR: https://github.com/mwndigi/exercise_7/blob/master/userRegistration.js
-        //var atAmount = registerNewEmail.includes("@");
-        // Variable that collects the index number of @/at in the email
-        var atpos = registerNewEmail.indexOf("@");
-        // Variable that collects the index of the last ./dot in the email
-        var dotpos = registerNewEmail.lastIndexOf(".");
-
-        // if statement that validates the typed in email
-        // atpos < 1 (at least 1 character before @)
-        // dotpos < atpos + 2 (must be characters between @ and .)
-        // dotpos + 2 >= registerNewEmail.length (must be characters after . eg .com)
-        if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= registerNewEmail.length) {
-            text = "Tast venligst en gyldig email ind";
-            getErrorMessage.innerHTML = text;
-            // console.log("Username cannot be empty, please choose one");
-            console.log(getErrorMessage.innerHTML)
-            return false;
-            /*
-            += "Den indtastede email skal være gyldig \n";
-            = false;
-             */
         }
 
         //SNL: Brugernavnet må ikke udelukkende bestå af mellemrum. Trim() betyder ingen mellemrum
@@ -211,6 +186,29 @@ class Costumer {
                 return false;
             }
         }
+
+            //KR: https://github.com/mwndigi/exercise_7/blob/master/userRegistration.js
+            //var atAmount = registerNewEmail.includes("@");
+            // Variable that collects the index number of @/at in the email
+            var atpos = registerNewEmail.indexOf("@");
+            // Variable that collects the index of the last ./dot in the email
+            var dotpos = registerNewEmail.lastIndexOf(".");
+
+            // if statement that validates the typed in email
+            // atpos < 1 (at least 1 character before @)
+            // dotpos < atpos + 2 (must be characters between @ and .)
+            // dotpos + 2 >= registerNewEmail.length (must be characters after . eg .com)
+            if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= registerNewEmail.length) {
+                text = "Tast venligst en gyldig email";
+                getErrorMessage.innerHTML = text;
+                console.log(getErrorMessage.innerHTML)
+                return false;
+                /*
+                += "Den indtastede email skal være gyldig \n";
+                = false;
+                 */
+            }
+
         //SNL: If statement som tjekker længden på kodeordet. Hvis det er under eller lig 8 karakterer sender den errormessage.
         if (registerNewPwd.length < 8) {
             text = "Kodeordet skal være på minimum 8 karakterer";
