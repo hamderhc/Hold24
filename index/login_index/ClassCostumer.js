@@ -16,8 +16,6 @@ class Costumer {
 
     /*Opretter funktion til at logge ind med allerede oprettede brugere*/
     static login() {
-        // var userInput = document.getElementById('myUsername').value; /*Henter data fra html brugernavn boks.*/
-        // var passwo = document.getElementById('pwd').value; /*Henter data fra html kodeord boks.*/
 
         /*Når du logger ind tjekker den om brugernavn eksisterer og om password er korrekt.*/
         for (var i = 0; i < listCustomers.length; i++) {
@@ -40,13 +38,15 @@ class Costumer {
             (forkert brugernavn, kodeord eller begge).
 
 
+
+
             var triesLeft = document.getElementById('triesLeft');
             var text2;
 
 
             // KR: Den følgende variable definerer antal loginforsøg.
             // https://www.formget.com/javascript-login-form/
-            var attempt = 4;
+            let attempt = 4;
 
             else {
                 //KR: Hvis man skriver forkert brugernavn og/eller kodeord, vil der blive fjernet et loginforsøg.
@@ -68,7 +68,11 @@ class Costumer {
                 }
             }
 
+
              */
+
+
+
         }
         this.checkLogin();
         this.storeLogInInformation();
@@ -148,6 +152,7 @@ class Costumer {
             listCustomers.push(information);
             localStorage.setItem('customerInformationList', JSON.stringify(listCustomers));
             alert("Du har nu oprettet en bruger");
+            document.location.reload(true);
 
         }
     }
