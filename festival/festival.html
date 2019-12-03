@@ -48,51 +48,49 @@
                 <tbody>
                 <tr>
                     <td>
-                        Josef
-                        <br>
-                        Århus
-                        <br>
-                        120kr/timen.
-                    </td>
-                    <td>
+                        <img src="../billeder/Linestander1.png" alt="#" class="lsIMG">
                         <!---<input class="quantityClass" type="text" value="" id="qJosef"/> -->
                         <!--input type="button" value="Add to cart" id="josefBtn" onclick="Cart.AddtoCart()"/-->
-                        <input class="buttons" type="button" value="Add to cart" id="Josef"/>
-                        <input type="button" value="Remove All" onclick="removeAll()">
+
+                        <!--<input type="button" value="Slet" onclick="removeAll()">-->
                         <!--<input type="button" value="Remove All" onclick="removeAll()">-->
-                        <img src="../billeder/Linestander1.png" alt="#">
+                        <div class="container">
+                            <p>Josef</p>
+                            <p>Århus</p>
+                            <p>120kr/timen.</p>
+                        </div>
+                        <input class="buttons" type="button" value="Tilføj til kurv" id="Josef"/>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        Hanna
+                        <img src="../billeder/Linestander2.png" alt="#" class="lsIMG">
                         <br>
-                        Odense
-                        <br>
-                        130kr/timen.
-                    </td>
-                    <td>
-                        <input class="buttons" type="button" value="Add to cart" id="Hanna" />
-                        <input type="button" value="Remove All" onclick="removeAll()">
+
+                        <!--<input type="button" value="Slet" onclick="removeAll()">-->
                         <!--input class="buttons" type="button" value="Add to cart" id="hannaBtn" onclick="Cart.AddtoCart()"/-->
                         <!--<input type="button" value="Remove All" onclick="removeAll()">-->
-                        <img src="../billeder/Linestander2.png" alt="#">
+                        <div class="container">
+                            <p>Hanna</p>
+                            <p>Odense</p>
+                            <p>130kr/timen.</p>
+                        </div>
+                        <input class="buttons" type="button" value="Tilføj til kurv" id="Hanna"/>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        Oliver
+                        <img src="../billeder/Linestander3.png" alt="#" class="lsIMG">
                         <br>
-                        København
-                        <br>
-                        140kr/timen.
-                    </td>
-                    <td>
-                        <input class="buttons" type="button" value="Add to cart" id="Oliver"/>
-                        <input type="button" value="Remove All" onclick="removeAll()">
+                       <!-- <input type="button" value="Slet" onclick="removeAll()">-->
                         <!--input class="buttons" type="button" value="Add to cart" id="OliverBtn" onclick="Cart.AddtoCart()"/-->
                         <!--<input type="button" value="Remove All" onclick="removeAll()">-->
-                        <img src="../billeder/Linestander3.png" alt="#">
+                        <div class="container">
+                            <p>Oliver</p>
+                            <p>København</p>
+                            <p>140kr/timen.</p>
+                        </div>
+                        <input class="buttons" type="button" value="Tilføj til kurv" id="Oliver"/>
                     </td>
                 </tr>
                 </tbody>
@@ -120,13 +118,14 @@
                 <tfoot>
                 <tr>
                     <td colspan="3" align="right" id="cartTotal">
-
                     </td>
                     <td>
                         <!--<a href="order.html"><input type="submit" class="addToCartBTN" value="Gå til kurv" onsubmit=""></a> -->
                         <a href="order.html"><button class="kurv" style="font-size:24px; color: indianred"><i class="fa fa-shopping-cart"></i></button></a>
                     </td>
-
+                </tr>
+                <tr>
+                    <input type="button" value="Slet" onclick="removeAll()">
                 </tr>
                 </tfoot>
             </table>
