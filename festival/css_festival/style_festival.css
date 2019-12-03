@@ -1,9 +1,6 @@
-/* body {
-    margin: 0;
-    padding-top: 80px;
-}
-
- */
+/*body {
+    margin: 25px;
+}*/
 
 /* logo */
 #logo {
@@ -226,3 +223,28 @@ ul li a:hover {
     border-color: #d04f81;
 }
 
+.linestandersTbl{
+
+}
+
+/*
+.buttons {
+    width: 80%;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-bottom: 25px;
+}
+
+.container{
+    text-align: center;
+    padding: 10px 20px;
+}*/
+
+.lsIMG{
+    padding:1px;
+    border:1px solid #021a40;
+}
+
+.container{
+
+}

@@ -41,7 +41,7 @@ var cartTotalPrice;
     shoppingCart = JSON.parse(localStorage.getItem("shoppingCart"))
 }*/
 
-var currentUser = ""
+var currentUser = "";
 var customerInformationList = JSON.parse(localStorage.getItem("customerInformationList"))
 console.log(customerInformationList[0].firstName)
 var currentLoggedInUser = JSON.parse(localStorage.getItem("currentLoggedInUser"))
@@ -54,9 +54,9 @@ function checkCurrentUser(){
         }
     }
 }
-checkCurrentUser()
+checkCurrentUser();
 
-console.log(currentUser)
+console.log(currentUser);
 
 if(customerInformationList[currentUser].cart == null){
     shoppingCart = [];
@@ -193,11 +193,11 @@ der har et matchende ID med "clickedButtonID". Når produktet er fundet sendes d
 
 //der oprettes en tom variabel, som bruges til at klassificere det valgte produkt (pr. id) (JM)
 var clickedButtonID;
-var quantityID;
+//var quantityID;
 
 // der oprettes en variabel, som kalder alle produkterne pr. knap. (JM)
 var buttons = document.getElementsByClassName("buttons");
-var quantityClass = document.getElementsByClassName('quantityClass');
+//var quantityClass = document.getElementsByClassName('quantityClass');
 
 /* Gennem et 'for' loop kører den igennem alle produkterne, hvor den gennem 'this.id' henter det specifikke produkts ID,
  herefter sendes produktet til AddtoCart funktionen (JM) */

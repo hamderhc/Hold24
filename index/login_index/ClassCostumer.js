@@ -4,6 +4,9 @@ var passwo = document.getElementById('pwd'); /*Henter data fra html kodeord boks
 var getErrorMessage = document.getElementById('error_message');
 var text;
 
+// Ovenstående er rykket ud af scopet så de kan bruges til checkLogin, validateUser.
+
+
 
 class Costumer {
     constructor(firstName, password, cart, order, email) {
