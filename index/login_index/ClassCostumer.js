@@ -83,14 +83,14 @@ class Costumer {
     brugere (username). Hvis det findes skal den pushe informationen til vores tomme array storeLogIn og herefter skal det pushes til localstorage.*/
     static storeLogInInformation() {
         storeLogIn = [];
-        var test = document.getElementById('myUsername').value;
+       //var test = document.getElementById('myUsername').value;
 
         var storeUser = {
             usernameLoggedin: document.getElementById('myUsername').value,
         };
 
         for(var i = 0; i< listCustomers.length; i++) {
-            if(listCustomers[i].firstName == test) {
+            if(listCustomers[i].firstName == userInput.value) {
                 storeLogIn.push(storeUser);
                 localStorage.setItem('currentLoggedInUser', JSON.stringify(storeLogIn));
             }
