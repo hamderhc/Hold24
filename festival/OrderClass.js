@@ -23,7 +23,6 @@ for (u = 0; u < cIL.length; u++) {
         CU = u
     }
 }
-
  */
 checkCurrentUser();
 console.log(currentUser);
@@ -60,7 +59,6 @@ cartTotal.value
 
 // Skal loope gennem Costumer list - matche current user - derefter køre et costumer[i].Cart ... loop.
 // Herefter er der lavet en confirm order button.
-
 
 function order() {
 
@@ -115,10 +113,6 @@ function order() {
             }
         }
 }
-
-
-
-
 
             /*alert("Tak for din bestilling. Din bestilling er nu gemt.");
                 orderHistory.push(new order (customerInformationList[currentUser].cart, null, customerInformationList[currentUser]));

@@ -6,8 +6,6 @@ var text;
 
 // Ovenstående er rykket ud af scopet så de kan bruges til checkLogin, validateUser.
 
-
-
 class Costumer {
     constructor(firstName, password, Cart, Order, email) {
         this.firstName = firstName;
@@ -21,10 +19,7 @@ class Costumer {
     static login() {
 
         /*Når du logger ind tjekker den om brugernavn eksisterer og om password er korrekt.*/
-        //for (var i = 0; i < listCustomers.length; i++) {
-          let i = 0;
-          while (i < listCustomers.length) {
-
+            for (var i = 0; i < listCustomers.length; i++) {
             //Hvis brugernavnet(fornavnet) og kodeordet er defineret i listcostumers bliver man logget ind
             if (userInput.value == listCustomers[i].firstName && passwo.value == listCustomers[i].password) {
                 //    alert("You have been logged in as " + userInput)
@@ -116,16 +111,15 @@ class Costumer {
             getErrorMessage.innerHTML = text;
             return;
         }
-        //Hvis boksen til kodeordet er tom skriver den enter password please.
+        //SNL: Hvis boksen til kodeordet er tom skriver den enter password please.
         if (passwo.value == "") {
-            //alert("Enter password please")
             console.log("Skriv venligst kodeordet");
             text = "Skriv venligst kodeordet"
             getErrorMessage.innerHTML = text;
             return;
         }
         console.log("Forkert kode eller brugernavn");
-        text = "Forkert kode eller brugernavn"
+        text = "Forkert kode eller brugernavn";
         getErrorMessage.innerHTML = text;
         return;
     }
@@ -260,14 +254,14 @@ addEventListener("submit", function(event){
   Vi blev nødt til at oprette denne funktion, da der inden blev oprettet dobbelt med brugere i localstorage hver gang man oprettede en ny bruger.*/
 function firstAccess() {
     if (listCustomers == null) {
-        listCustomers = []
+        listCustomers = [];
         //Opretter nye faste bruger som altid kan logge ind.
         listCustomers.push(new Costumer("Stine", "123456789", null, null, null));
         listCustomers.push(new Costumer("Rama", "111111111", null, null, null));
         listCustomers.push(new Costumer("Jonathan", "999999999", null, null, null));
         /*Vi opretter en "boks" i localstorage som hedder listcostumers som har "nøglen" til at komme ind i boksen - "customerInformationList"
          - herefter siger vi at alle costumers skal laves om fra et array til en string når de sendes til localstorage.*/
-        localStorage.setItem('customerInformationList', JSON.stringify(listCustomers))
+        localStorage.setItem('customerInformationList', JSON.stringify(listCustomers));
         console.log(listCustomers)
     }
 }
