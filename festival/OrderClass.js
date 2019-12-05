@@ -8,58 +8,27 @@ class Order {
 
 var orderHistory = [];
 
-checkCurrentUser();
 
-if(customerInformationList[currentUser].Order == null){
-    orderHistory = [];
-} else {
-    orderHistory = customerInformationList[currentUser].Order
-}
+
+//checkCurrentUser();
+
+let cIL = JSON.parse(localStorage.getItem("customerInformationList"));
+let cLIU = JSON.parse(localStorage.getItem("currentLoggedInUser"));
 
 /*
-function finalOrderHistory() {
-
-            // localStorage.setItem("shoppingCart", JSON.stringify(shoppingCart))
-        let orderLSParsed = JSON.parse(localStorage.getItem('order'));
-// Øvelse 15.1 i bogen viser buildTable funktionen
-        function buildTable(data) {
-            let table = document.createElement("table");
-
-            let fields = Object.keys(data[0]);
-            let headRow = document.createElement("tr");
-            fields.forEach(function(field) {
-                let headCell = document.createElement("th");
-                headCell.textContent = field;
-                headRow.appendChild(headCell);
-            });
-            table.appendChild(headRow);
-
-            data.forEach(function(object) {
-                let row = document.createElement("tr");
-                fields.forEach(function(field) {
-                    let cell = document.createElement("td");
-                    cell.textContent = object[field];
-                    if (typeof object[field] == "number") {
-                        cell.style.textAlign = "left";
-                    }
-                    row.appendChild(cell);
-                });
-                table.appendChild(row);
-            });
-
-            return table;
-        }
-//implementering af øvelse 15.1 ovenfor
-        document.querySelector("#freakingFinal")
-            .appendChild(buildTable(orderLSParsed));
-
-
-
-
+if(cIL[cLIU].Order == null){
+    orderHistory = [];
+} else {
+    orderHistory = cIL[cLIU].Order
 }
 
-
  */
+
+
+
+
+
+
 /*
 KR: For at få fat i værdien af det bestillede:
 
@@ -76,21 +45,28 @@ cartTotal.value
 // Skal loope gennem Costumer list - matche current user - derefter køre et costumer[i].Cart ... loop.
 // Herefter er der lavet en confirm order button.
 
-let cIL = JSON.parse(localStorage.getItem("customerInformationList"));
-let cLIU = JSON.parse(localStorage.getItem("currentLoggedInUser"));
+
 function order() {
 
     //if(currentLoggedInUser[0].usernameLoggedin == brugernavnTjek.value){
-    for(i = 0; i < cIL.length; i++){
-        if(cIL[i].firstName == cLIU[0].usernameLoggedin){
+    let txt;
+    if(confirm("Er du sikker på din ordrer er korrekt?")) {
+        for (i = 0; i < cIL.length; i++) {
+            if (cIL[i].firstName == cLIU[0].usernameLoggedin) {
 
-            console.log(cIL[i].Cart);
-            orderHistory.push(cIL[i].Cart);
-            console.log(orderHistory);
-            cIL[i].Order = orderHistory;
-            localStorage.setItem('customerInformationList', JSON.stringify(cIL));
-
+                console.log(cIL[i].Cart);
+                orderHistory.push(cIL[i].Cart);
+                console.log(orderHistory);
+                cIL[i].Order = orderHistory;
+                localStorage.setItem('customerInformationList', JSON.stringify(cIL));
+                finalOrderHistory();
+            }
+            txt = "Din ordre er nu bestilt";
         }
+    }
+        else {
+            txt = "Din ordre gik ikke igennem";
+            document.getElementById('confirmtxt').innerHTML = txt;
     }
 
 
@@ -111,4 +87,45 @@ function order() {
 }
 
          */
+}
+
+function finalOrderHistory() {
+
+    // localStorage.setItem("shoppingCart", JSON.stringify(shoppingCart))
+    let orderLSParsed = JSON.parse(localStorage.getItem('order'));
+// Øvelse 15.1 i bogen viser buildTable funktionen
+    function buildTable(data) {
+        let table = document.createElement("table");
+
+        let fields = Object.keys(data[0]);
+        let headRow = document.createElement("tr");
+        fields.forEach(function(field) {
+            let headCell = document.createElement("th");
+            headCell.textContent = field;
+            headRow.appendChild(headCell);
+        });
+        table.appendChild(headRow);
+
+        data.forEach(function(object) {
+            let row = document.createElement("tr");
+            fields.forEach(function(field) {
+                let cell = document.createElement("td");
+                cell.textContent = object[field];
+                if (typeof object[field] == "number") {
+                    cell.style.textAlign = "left";
+                }
+                row.appendChild(cell);
+            });
+            table.appendChild(row);
+        });
+
+        return table;
+    }
+//implementering af øvelse 15.1 ovenfor
+    document.querySelector("#freakingFinal")
+        .appendChild(buildTable(cIL.Order));
+
+
+
+
 }
