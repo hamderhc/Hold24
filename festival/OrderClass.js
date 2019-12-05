@@ -1,7 +1,7 @@
 class order {
-    constructor(Cart, pris, currentUser) {
+    constructor(Cart, price, currentUser) {
         this.cart = cart; //arraylist med alle produktene kunden har bestillt
-        this.pris = pris;
+        this.price = price;
         this.currentUser = currentLoggedInUser
     }
 }

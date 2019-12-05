@@ -1,5 +1,5 @@
 
-class Cart {
+class Cart{
     constructor(shoppingCart, cartTotalPrice){
         this.shoppingCart = shoppingCart;
         this.cartTotalPrice = cartTotalPrice;
@@ -116,6 +116,15 @@ localStorage.setItem(Cart, totalPriceString);
 
 
 
+function confirmBtn() {
+    var txt;
+    if(confirm("Er du din ordre korrekt?")){
+        txt = "Din ordre er bestilt!";
+    } else {
+        txt = "Din ordre er annuleret!";
+    }
+    document.getElementById("confirmTxt").innerText = txt;
+}
 
 
 
