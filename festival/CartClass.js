@@ -109,6 +109,21 @@ localStorage.setItem(Cart, totalPriceString);
  */
 
 
+
+function confirmBtn() {
+    var txt;
+    if(confirm("Er du din ordre korrekt?")){
+        txt = "Din ordre er bestilt!";
+    } else {
+        txt = "Din ordre er annuleret!";
+    }
+    document.getElementById("confirmTxt").innerText = txt;
+}
+
+
+
+
+
 /*
 Vi mangler at tilføje vores property, cartTotalPrice til localStorage for vores Cart-class. Mikkel kan måske hjælpe med dette?
 Hvis ikke, reflekter over, hvad der går galt, hvorfor og hvad man kunne gøre af alternativer for at få det til at virke.

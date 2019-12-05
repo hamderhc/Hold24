@@ -86,7 +86,7 @@ class Product {
     displayShoppingCart() {
         var orderedProductsTblBody = document.getElementById("orderedProductsTblBody");
         console.log(orderedProductsTblBody);
-        // Tester om der er mere end et produkt, ellers sletter den.
+        // Tester om der er mere end et produkt, ellers sletter den. Den sørger for at den ikke vokser eksponentielt. Hver gang man tilføjer en row, så den ikke  vokser mere en 1 pr. tryk.
         while (orderedProductsTblBody.rows.length > 0) {
             orderedProductsTblBody.deleteRow(0);
         }
@@ -148,7 +148,13 @@ splice metoden sletter indholdet i shoppingCart arrayet. Den sletter dog ikke in
 function removeAll(){
     document.getElementById("orderedProductsTblBody").innerHTML = "";
     document.getElementById("cartTotal").innerHTML = "";
-    shoppingCart.splice(0, 99);
+    customerInformationList[currentUser].cart.splice(0, 99);
+       /* for(i = 0; i < customerInformationList.length; i++){
+            if(customerInformationList[i].firstName == currentLoggedInUser[0].usernameLoggedin){
+                currentUser = i;
+                localStorage.removeItem(customerInformationList[currentUser].cart);
+            }
+        }*/
 }
 /*    static AddtoCart(){
         for(i=0; i<allProducts.length; i++){
