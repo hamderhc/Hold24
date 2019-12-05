@@ -1,23 +1,4 @@
 
-// https://stackoverflow.com/questions/16293977/creating-a-shopping-cart-using-only-html-javascript
-
-/* Dokumentation - JM
-Hvad skal koden opnå?
-    - Koden skal fungerer som et led mellem at få produkterne fra produktsiden til indkøbskurven, samt udregne
-    den totale pris af timerne, som produktet skal bruges. Der mangler en mere optimeret løsning til at vælge
-    antal timer for produktet.
-Hvordan opnår koden dette?
-    - Koden virker og kan gennem funktionen displayShoppingCart og AddToCart tilføje produkter til kurven.
-    displayShoppingCart viser det, som er (tilføjet) i kurven, hvilket bliver tilføjet via. AddToCart funktionen,
-    som overfører input(hhv. name, description og price) af de forskellige produkter.
-Er koden et eksperiment eller en gennemført implementering?
-    - Koden er indtil videre nok mere et eksperiment, da noget af den bør optimeres og tilrettes mere præcist, ligeledes
-    bør den skrives rent.
-Hvorfor har vi valgt at gøre det sådan?
-    - Denne kode er inspireret af ovenstående kode, som findes i linket - Og den SKAL skrives om.
- */
-
-
 
 //Vi laver et tomt array til at holde alle produkterne (JM)
 //Variabel allProducts er et tomt array som skal indeholde alle produkterne (HCA)
@@ -58,10 +39,10 @@ checkCurrentUser();
 
 console.log(currentUser);
 
-if(customerInformationList[currentUser].cart == null){
+if(customerInformationList[currentUser].Cart == null){
     shoppingCart = [];
 } else {
-    shoppingCart = customerInformationList[currentUser].cart
+    shoppingCart = customerInformationList[currentUser].Cart
 }
 
 //Vi laver en klasse, som indeholder attributterne navn, lokation, og pris for alle produkterne. (JM)
@@ -148,7 +129,7 @@ splice metoden sletter indholdet i shoppingCart arrayet. Den sletter dog ikke in
 function removeAll(){
     document.getElementById("orderedProductsTblBody").innerHTML = "";
     document.getElementById("cartTotal").innerHTML = "";
-    customerInformationList[currentUser].cart.splice(0, 99);
+    customerInformationList[currentUser].Cart.splice(0, 99);
        /* for(i = 0; i < customerInformationList.length; i++){
             if(customerInformationList[i].firstName == currentLoggedInUser[0].usernameLoggedin){
                 currentUser = i;

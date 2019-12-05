@@ -9,6 +9,7 @@ class Cart extends Product {
 }
 
 //husk quantity objekt på product class
+
 function newCartObject (){
     new Cart(shoppingCart, cartTotalPrice)
 }
