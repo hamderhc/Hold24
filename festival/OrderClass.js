@@ -10,19 +10,35 @@ var orderHistory = [];
 
 
 
-//checkCurrentUser();
+
 
 let cIL = JSON.parse(localStorage.getItem("customerInformationList"));
 let cLIU = JSON.parse(localStorage.getItem("currentLoggedInUser"));
 
+//vi bruger samme metode som ved checkCurrentUser():
 /*
-if(cIL[cLIU].Order == null){
-    orderHistory = [];
-} else {
-    orderHistory = cIL[cLIU].Order
+let CU = "";
+for (u = 0; u < cIL.length; u++) {
+    if (cIL[u].firstName == cLIU[0].usernameLoggedin) {
+        CU = u
+    }
 }
 
  */
+checkCurrentUser();
+console.log(currentUser);
+
+console.log(cIL[currentUser].Order);
+
+if(cIL[currentUser].Order == null){
+    orderHistory = [];
+} else {
+    orderHistory = cIL[currentUser].Order
+}
+
+
+
+
 
 
 
@@ -48,7 +64,8 @@ cartTotal.value
 
 function order() {
 
-    //if(currentLoggedInUser[0].usernameLoggedin == brugernavnTjek.value){
+    //KR: for-loop der sætter den nuværende brugers brugernavn lig med en bruger i vores fulde brugerliste.
+    //Hvis det er tilfældet, vil først push'e Cart-klassen ind i et
     for (i = 0; i < cIL.length; i++) {
         if (cIL[i].firstName == cLIU[0].usernameLoggedin) {
 
@@ -57,79 +74,49 @@ function order() {
             console.log(orderHistory);
             cIL[i].Order = orderHistory;
             localStorage.setItem('customerInformationList', JSON.stringify(cIL));
-            let CIL = JSON.parse(localStorage.getItem("customerInformationList"));
-            function finalOrderHistory() {
 
+            function tabel() {
+                // Øvelse 15.1 i bogen viser buildTable funktionen
+                function buildTable(data) {
+                    let table = document.createElement("table");
 
-                 // Øvelse 15.1 i bogen viser buildTable funktionen
-                 function buildTable(data) {
-                     let table = document.createElement("table");
+                    let fields = Object.keys(data[0]);
+                    let headRow = document.createElement("tr");
+                    fields.forEach(function (field) {
+                        let headCell = document.createElement("th");
+                        headCell.textContent = field;
+                        headRow.appendChild(headCell);
+                    });
+                    table.appendChild(headRow);
 
-                     let fields = Object.keys(data[0]);
-                     let headRow = document.createElement("tr");
-                     fields.forEach(function (field) {
-                         let headCell = document.createElement("th");
-                         headCell.textContent = field;
-                         headRow.appendChild(headCell);
-                     });
-                     table.appendChild(headRow);
-
-                     data.forEach(function (object) {
-                         let row = document.createElement("tr");
-                         fields.forEach(function (field) {
-                             let cell = document.createElement("td");
-                             cell.textContent = object[field];
-                             if (typeof object[field] == "number") {
-                                 cell.style.textAlign = "left";
-                             }
-                             row.appendChild(cell);
-                         });
-                         table.appendChild(row);
-                     });
-
-                     return table;
-                 }
-
-                 //implementering af øvelse 15.1 ovenfor
-                 document.querySelector("#freakingFinal")
-                     .appendChild(buildTable(CIL[i].Order[0]));
-
-
-             }
-             finalOrderHistory();
-
-            /*
-            KR: Vi laver en funktion, der skal udregne vores pant.
-            Inde i denne funktion, definerer vi en variabel, sum, som har værdien 0.
-            Nu starter vi et for-loop, hvor 'i' (vores array-nummer) = 0 (altså, det starter på 0), 'i' er mindre eller lig med vores JSON parsed array med vores pant-data, og 'i' skal addere sin værdi med 1 hver gang den går igennem loopet.
-            Inde i dette loop definerer vi 'totalPantKr' til at være 'aPantMoney' + b'PantMoney + cPantMoney i det i'ende array inde i pantListParsed
-
-            Vores sum bliver herefter adderet med 'totalPantKr' og udregnet hver gang vi går igennem loopet.
-            Den endelige sum bliver til sidst skrevet ind i vores konsol og i elementID'et 'sumAfPantB', hvor der står den endelige sum + " kr.".
-             */
-            function calTotalPrice() {
-
-
-                //let sum = 0;
-                for (let e = 0; e <= CIL[i].Order[0].length; e++) {
-
-
-                    //let totalOrderKr = CIL[i].Order[0];
-
-                    //sum += totalOrderKr;
-
-                    console.log(e);
-                    document.getElementById('totalOrderPrice').innerHTML = 'Tid i kø er tid spildt! Så tillykke med dine ' + e + ' timers sparet tid - det kommer til at blive alle pengene værd!';
+                    data.forEach(function (object) {
+                        let row = document.createElement("tr");
+                        fields.forEach(function (field) {
+                            let cell = document.createElement("td");
+                            cell.textContent = object[field];
+                            if (typeof object[field] == "number") {
+                                cell.style.textAlign = "left";
+                            }
+                            row.appendChild(cell);
+                        });
+                        table.appendChild(row);
+                    });
+                    return table;
                 }
 
-
+                //implementering af øvelse 15.1 ovenfor. Vi skal indsætte .pop() for at få fat i den sidste værdi i array'et. SKRIV OM DETTE!
+                document.querySelector("#freakingFinal")
+                    .appendChild(buildTable(cIL[i].Order.pop()));
             }
-            calTotalPrice();
+            tabel();
 
-
+            // Vi finder antallet af bestilte timer ved at bruge cIL[i].Order.pop().length :
+            document.getElementById('totalOrderPrice').innerHTML = 'Tid i kø er tid spildt! \nSå tillykke med dine ' + cIL[i].Order.pop().length + ' timers sparet tid - det kommer til at blive alle pengene værd!';
+            }
         }
-    }
 }
+
+
 
 
 
