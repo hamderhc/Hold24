@@ -44,7 +44,7 @@ var cartTotalPrice;
 var currentUser = "";
 var customerInformationList = JSON.parse(localStorage.getItem("customerInformationList"))
 console.log(customerInformationList[0].firstName)
-var currentLoggedInUser = JSON.parse(localStorage.getItem("currentLoggedInUser"))
+var currentLoggedInUser = JSON.parse(localStorage.getItem("currentLoggedInUser"));
 
 
 function checkCurrentUser(){
@@ -259,7 +259,7 @@ function AddtoCart(){
             //console.log("The price is " + shoppingCart[i].price);
 
             allProducts[i].displayShoppingCart();
-            customerInformationList[currentUser].cart = shoppingCart;
+            customerInformationList[currentUser].Cart = shoppingCart;
             localStorage.setItem("customerInformationList", JSON.stringify(customerInformationList));
 
            // localStorage.setItem("shoppingCart", JSON.stringify(shoppingCart))

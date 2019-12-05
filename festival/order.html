@@ -55,7 +55,7 @@
 
         </td>
         <td>
-            <input type="button" value="Køb nu" onclick="final()">
+            <input type="button" value="Køb nu" onclick="order()">
         </td>
     </tr>
     </tfoot>
@@ -71,6 +71,8 @@
 
 
 <br/>
+
+<!--
 <div>
     <ul>
         <input type="text" placeholder="Skriv dit brugernavn her for at bestille" id="brugernavnTjek">
@@ -80,9 +82,14 @@
         </p>
     </ul>
 </div>
-<br/>
+-->
 
-<p id="freakingFinal">
+<br/>
+<div>
+
+</div>
+<h2>Ordrehistorik</h2>
+<p id="freakingFinal" onload="finalOrderHistory()">
 
 </p>
 
@@ -90,6 +97,7 @@
 <script src="ClassProduct.js"></script>
 <script src="CartClass.js"></script>
 <script src="OrderClass.js"></script>
+<script src="orderTable.js"></script>
 <!-- <script src="jetbrains://web-storm/navigate/reference?project=Hold24&path=index/login_index/ClassCostumer.js"></script> -->
 
 </body>
