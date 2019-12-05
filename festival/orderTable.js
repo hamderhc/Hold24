@@ -1,7 +1,7 @@
 /*
 let inputJ = document.getElementById('qJosef');
 let quantityJosef = inputJ.value; */
-class Product {
+/*class Product {
     constructor(name, location, price, quantity) {
         this.name = name;
         this.location = location;
@@ -24,7 +24,11 @@ let inputJosef = document.getElementById('Josef');
 let inputHanna = document.getElementById('Hanna');
 let inputOliver = document.getElementById('Oliver');
 
+ */
 
+
+
+/*
 function addJosef() {
     var Josef = inputJosef.value;
     var JosefAmount = Josef * 120;
@@ -65,39 +69,9 @@ function addOliver() {
 }
 
 
+ */
 
 
-// Øvelse 15.1 i bogen viser buildTable funktionen
-function buildTable(data) {
-    let table = document.createElement("table");
-
-    let fields = Object.keys(data[0]);
-    let headRow = document.createElement("tr");
-    fields.forEach(function(field) {
-        let headCell = document.createElement("th");
-        headCell.textContent = field;
-        headRow.appendChild(headCell);
-    });
-    table.appendChild(headRow);
-
-    data.forEach(function(object) {
-        let row = document.createElement("tr");
-        fields.forEach(function(field) {
-            let cell = document.createElement("td");
-            cell.textContent = object[field];
-            if (typeof object[field] == "number") {
-                cell.style.textAlign = "left";
-            }
-            row.appendChild(cell);
-        });
-        table.appendChild(row);
-    });
-
-    return table;
-}
-//implementering af øvelse 15.1 ovenfor
-document.querySelector("#orderedProductsTblBody")
-    .appendChild(buildTable(ProductLSParsed));
 
 
 

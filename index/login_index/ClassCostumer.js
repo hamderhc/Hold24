@@ -9,11 +9,11 @@ var text;
 
 
 class Costumer {
-    constructor(firstName, password, cart, order, email) {
+    constructor(firstName, password, Cart, Order, email) {
         this.firstName = firstName;
         this.password = password;
-        this.cart = cart;
-        this.order = order;
+        this.Cart = Cart;
+        this.Order = Order;
         this.email = email;
     }
 
@@ -21,14 +21,19 @@ class Costumer {
     static login() {
 
         /*Når du logger ind tjekker den om brugernavn eksisterer og om password er korrekt.*/
-        for (var i = 0; i < listCustomers.length; i++) {
+        //for (var i = 0; i < listCustomers.length; i++) {
+          let i = 0;
+          while (i < listCustomers.length) {
+
             //Hvis brugernavnet(fornavnet) og kodeordet er defineret i listcostumers bliver man logget ind
             if (userInput.value == listCustomers[i].firstName && passwo.value == listCustomers[i].password) {
                 //    alert("You have been logged in as " + userInput)
                 console.log("Du er logget på som " + userInput);
                 document.location.href='../../festival/festival.html';
                 return;
+
             }
+            i++;
             /*
             KR: Vi har prøvet at lave en "du har x antal forsøg tilbage" hvor den så til sidst gør, så man ikke kan skrive
             i felterne for brugernavn og kodeord eller trykke på log ind knappen, hvis man har brugt alle sine forsøg.
@@ -85,14 +90,14 @@ class Costumer {
     brugere (username). Hvis det findes skal den pushe informationen til vores tomme array storeLogIn og herefter skal det pushes til localstorage.*/
     static storeLogInInformation() {
         storeLogIn = [];
-        var test = document.getElementById('myUsername').value;
+       //var test = document.getElementById('myUsername').value;
 
         var storeUser = {
             usernameLoggedin: document.getElementById('myUsername').value,
         };
 
         for(var i = 0; i< listCustomers.length; i++) {
-            if(listCustomers[i].firstName == test) {
+            if(listCustomers[i].firstName == userInput.value) {
                 storeLogIn.push(storeUser);
                 localStorage.setItem('currentLoggedInUser', JSON.stringify(storeLogIn));
             }
@@ -193,22 +198,25 @@ class Costumer {
                 return false;
             }
         }
-
+        // if statement that validates the typed in email
+        // atpos < 1 (at least 1 character before @)
+        // dotpos < atpos + 2 (must be characters between @ and .)
+        // dotpos + 2 >= registerNewEmail.length (must be characters after . eg .com)
             //KR: https://github.com/mwndigi/exercise_7/blob/master/userRegistration.js
-            //var atAmount = registerNewEmail.includes("@");
+
+                  var atAmount2 = registerNewEmail.valueOf("@");
+
             // Variable that collects the index number of @/at in the email
             var atpos = registerNewEmail.indexOf("@");
             // Variable that collects the index of the last ./dot in the email
             var dotpos = registerNewEmail.lastIndexOf(".");
 
-            // if statement that validates the typed in email
-            // atpos < 1 (at least 1 character before @)
-            // dotpos < atpos + 2 (must be characters between @ and .)
-            // dotpos + 2 >= registerNewEmail.length (must be characters after . eg .com)
+
             if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= registerNewEmail.length) {
                 text = "Tast venligst en gyldig email";
                 getErrorMessage.innerHTML = text;
-                console.log(getErrorMessage.innerHTML)
+                console.log(getErrorMessage.innerHTML);
+                console.log(registerNewEmail.valueOf());
                 return false;
                 /*
                 += "Den indtastede email skal være gyldig \n";
