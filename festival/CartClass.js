@@ -14,7 +14,7 @@ lægger elementerne i Id'et "orderedProductsTblBody" i HTML (HCA)
  */
 function showCart() {
 
-    /*
+
     var orderedProductsTblBody = document.getElementById("orderedProductsTblBody");
 
     // console.log(orderedProductsTblBody1);
@@ -23,7 +23,7 @@ function showCart() {
         orderedProductsTblBody.deleteRow(0);
     }
 
-     */
+
 
 
     //Variabel for prisen, som sættes til 0 (startpris). (JM)
@@ -109,7 +109,7 @@ localStorage.setItem(Cart, totalPriceString);
  */
 
 
-
+/*
 function confirmBtn() {
     var txt;
     if(confirm("Er du din ordre korrekt?")){
@@ -119,6 +119,8 @@ function confirmBtn() {
     }
     document.getElementById("confirmTxt").innerText = txt;
 }
+
+ */
 
 
 

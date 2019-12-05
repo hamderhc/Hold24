@@ -58,10 +58,10 @@ checkCurrentUser();
 
 console.log(currentUser);
 
-if(customerInformationList[currentUser].cart == null){
+if(customerInformationList[currentUser].Cart == null){
     shoppingCart = [];
 } else {
-    shoppingCart = customerInformationList[currentUser].cart
+    shoppingCart = customerInformationList[currentUser].Cart
 }
 
 //Vi laver en klasse, som indeholder attributterne navn, lokation, og pris for alle produkterne. (JM)
@@ -148,7 +148,7 @@ splice metoden sletter indholdet i shoppingCart arrayet. Den sletter dog ikke in
 function removeAll(){
     document.getElementById("orderedProductsTblBody").innerHTML = "";
     document.getElementById("cartTotal").innerHTML = "";
-    customerInformationList[currentUser].cart.splice(0, 99);
+    customerInformationList[currentUser].Cart.splice(0, 99);
        /* for(i = 0; i < customerInformationList.length; i++){
             if(customerInformationList[i].firstName == currentLoggedInUser[0].usernameLoggedin){
                 currentUser = i;
