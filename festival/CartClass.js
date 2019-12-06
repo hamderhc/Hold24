@@ -1,4 +1,3 @@
-
 class Cart {
     constructor(shoppingCart, cartTotalPrice) {
         this.shoppingCart = shoppingCart;
@@ -7,14 +6,13 @@ class Cart {
 }
 
 
-
 // vi laver en funktion, som skal vise de valgte produkter i tabellen. (JM)
 /* Denne funktion gør at de valgte produkter vises i tabellen. Det specificeres ved at variabel orderedProductsTblBody
 lægger elementerne i Id'et "orderedProductsTblBody" i HTML (HCA)
  */
 function showCart() {
 
-    /*
+
     var orderedProductsTblBody = document.getElementById("orderedProductsTblBody");
 
     // console.log(orderedProductsTblBody1);
@@ -22,8 +20,6 @@ function showCart() {
     while (orderedProductsTblBody.rows.length > 0) {
         orderedProductsTblBody.deleteRow(0);
     }
-
-     */
 
 
     //Variabel for prisen, som sættes til 0 (startpris). (JM)
@@ -110,7 +106,7 @@ localStorage.setItem(Cart, totalPriceString);
  */
 
 
-
+/*
 function confirmBtn() {
     var txt;
     if(confirm("Er du din ordre korrekt?")){
@@ -121,8 +117,7 @@ function confirmBtn() {
     document.getElementById("confirmTxt").innerText = txt;
 }
 
-
-
+ */
 
 
 /*

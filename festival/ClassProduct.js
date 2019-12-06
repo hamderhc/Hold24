@@ -1,3 +1,20 @@
+// https://stackoverflow.com/questions/16293977/creating-a-shopping-cart-using-only-html-javascript
+
+/* Dokumentation - JM
+Hvad skal koden opnå?
+    - Koden skal fungerer som et led mellem at få produkterne fra produktsiden til indkøbskurven, samt udregne
+    den totale pris af timerne, som produktet skal bruges. Der mangler en mere optimeret løsning til at vælge
+    antal timer for produktet.
+Hvordan opnår koden dette?
+    - Koden virker og kan gennem funktionen displayShoppingCart og AddToCart tilføje produkter til kurven.
+    displayShoppingCart viser det, som er (tilføjet) i kurven, hvilket bliver tilføjet via. AddToCart funktionen,
+    som overfører input(hhv. name, description og price) af de forskellige produkter.
+Er koden et eksperiment eller en gennemført implementering?
+    - Koden er indtil videre nok mere et eksperiment, da noget af den bør optimeres og tilrettes mere præcist, ligeledes
+    bør den skrives rent.
+Hvorfor har vi valgt at gøre det sådan?
+    - Denne kode er inspireret af ovenstående kode, som findes i linket - Og den SKAL skrives om.
+ */
 
 
 //Vi laver et tomt array til at holde alle produkterne (JM)
@@ -28,18 +45,19 @@ console.log(customerInformationList[0].firstName)
 var currentLoggedInUser = JSON.parse(localStorage.getItem("currentLoggedInUser"));
 
 
-function checkCurrentUser(){
-    for(i = 0; i < customerInformationList.length; i++){
-        if(customerInformationList[i].firstName == currentLoggedInUser[0].usernameLoggedin){
+function checkCurrentUser() {
+    for (i = 0; i < customerInformationList.length; i++) {
+        if (customerInformationList[i].firstName == currentLoggedInUser[0].usernameLoggedin) {
             currentUser = i
         }
     }
 }
+
 checkCurrentUser();
 
 console.log(currentUser);
 
-if(customerInformationList[currentUser].Cart == null){
+if (customerInformationList[currentUser].Cart == null) {
     shoppingCart = [];
 } else {
     shoppingCart = customerInformationList[currentUser].Cart
@@ -60,6 +78,7 @@ class Product {
         this.price = price;
         //this.quantity = quantity;
     }
+
 // vi laver en funktion, som skal vise de valgte produkter i tabellen. (JM)
     /* Denne funktion gør at de valgte produkter vises i tabellen. Det specificeres ved at variabel orderedProductsTblBody
     lægger elementerne i Id'et "orderedProductsTblBody" i HTML (HCA)
@@ -126,17 +145,18 @@ class Product {
 Denne funktion skal slette alt der er blevet lagt i kurven. Den sætter indholdet i de 2 valgte elemtenter til blankt.
 splice metoden sletter indholdet i shoppingCart arrayet. Den sletter dog ikke indholdet i console. (HCA)
  */
-function removeAll(){
+function removeAll() {
     document.getElementById("orderedProductsTblBody").innerHTML = "";
     document.getElementById("cartTotal").innerHTML = "";
     customerInformationList[currentUser].Cart.splice(0, 99);
-       /* for(i = 0; i < customerInformationList.length; i++){
-            if(customerInformationList[i].firstName == currentLoggedInUser[0].usernameLoggedin){
-                currentUser = i;
-                localStorage.removeItem(customerInformationList[currentUser].cart);
-            }
-        }*/
+    /* for(i = 0; i < customerInformationList.length; i++){
+         if(customerInformationList[i].firstName == currentLoggedInUser[0].usernameLoggedin){
+             currentUser = i;
+             localStorage.removeItem(customerInformationList[currentUser].cart);
+         }
+     }*/
 }
+
 /*    static AddtoCart(){
         for(i=0; i<allProducts.length; i++){
             if (clickedButtonID == allProducts[i].name){
@@ -148,15 +168,16 @@ function removeAll(){
 
 // Produkterne oprettes og skubbes ind i et array. (JM)
 // Her bliver produkterne oprettet og skubbet ind i det tomme array allProducts (HCA)
-function createObjects(){
+function createObjects() {
 
     allProducts.push(new Product("Josef", "Århus", 120));
     allProducts.push(new Product("Oliver", "København", 140));
     allProducts.push(new Product("Hanna", "Odense", 130));
-    for(i=0; i < allProducts.length; i++){
+    for (i = 0; i < allProducts.length; i++) {
         allProducts[i].displayShoppingCart();
     }
 }
+
 createObjects();
 
 
@@ -188,8 +209,8 @@ var buttons = document.getElementsByClassName("buttons");
 
 /* Gennem et 'for' loop kører den igennem alle produkterne, hvor den gennem 'this.id' henter det specifikke produkts ID,
  herefter sendes produktet til AddtoCart funktionen (JM) */
-for(i=0; i < buttons.length; i++){
-    buttons[i].addEventListener("click", function(){
+for (i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener("click", function () {
         clickedButtonID = this.id;
         console.log(clickedButtonID);
         AddtoCart();
@@ -222,7 +243,7 @@ function quantityCal() {
 
 /* der loopes gennem alle produkterne, og den tager det produkt, som er lig med det id, som man har trykket på, hvorefter
 det valgte produkt pushes ind i det tomme 'shoppingCart' array. (JM) */
-function AddtoCart(){
+function AddtoCart() {
     //shoppingCart = localStorage
     //newCartnew: Cart(allProducts, cartTotalPrice)
     console.log("error");
@@ -239,8 +260,8 @@ function AddtoCart(){
 
     */
 
-    for(i=0; i<allProducts.length; i++){
-        if (clickedButtonID == allProducts[i].name){
+    for (i = 0; i < allProducts.length; i++) {
+        if (clickedButtonID == allProducts[i].name) {
             shoppingCart.push(allProducts[i]);
 
             //console.log("The price is " + shoppingCart[i].price);
@@ -249,7 +270,7 @@ function AddtoCart(){
             customerInformationList[currentUser].Cart = shoppingCart;
             localStorage.setItem("customerInformationList", JSON.stringify(customerInformationList));
 
-           // localStorage.setItem("shoppingCart", JSON.stringify(shoppingCart))
+            // localStorage.setItem("shoppingCart", JSON.stringify(shoppingCart))
 
         }
     }
