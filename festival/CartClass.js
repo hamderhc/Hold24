@@ -1,11 +1,9 @@
-
 class Cart {
     constructor(shoppingCart, cartTotalPrice) {
         this.shoppingCart = shoppingCart;
         this.cartTotalPrice = cartTotalPrice;
     }
 }
-
 
 
 // vi laver en funktion, som skal vise de valgte produkter i tabellen. (JM)
@@ -22,8 +20,6 @@ function showCart() {
     while (orderedProductsTblBody.rows.length > 0) {
         orderedProductsTblBody.deleteRow(0);
     }
-
-
 
 
     //Variabel for prisen, som sættes til 0 (startpris). (JM)
@@ -121,9 +117,6 @@ function confirmBtn() {
 }
 
  */
-
-
-
 
 
 /*
