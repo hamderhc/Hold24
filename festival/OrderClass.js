@@ -9,9 +9,6 @@ class Order {
 var orderHistory = [];
 
 
-
-
-
 let cIL = JSON.parse(localStorage.getItem("customerInformationList"));
 let cLIU = JSON.parse(localStorage.getItem("currentLoggedInUser"));
 
@@ -30,19 +27,11 @@ console.log(currentUser);
 
 console.log(cIL[currentUser].Order);
 
-if(cIL[currentUser].Order == null){
+if (cIL[currentUser].Order == null) {
     orderHistory = [];
 } else {
     orderHistory = cIL[currentUser].Order
 }
-
-
-
-
-
-
-
-
 
 
 /*
@@ -52,10 +41,6 @@ var cartTotal = document.getElementById('cartTotal')
 cartTotal.value
 
  */
-
-
-
-
 
 
 // Skal loope gennem Costumer list - matche current user - derefter køre et costumer[i].Cart ... loop.
@@ -108,39 +93,33 @@ function order() {
                 document.querySelector("#freakingFinal")
                     .appendChild(buildTable(cIL[i].Order.pop()));
             }
+
             tabel();
 
             // Vi finder antallet af bestilte timer ved at bruge cIL[i].Order.pop().length :
             document.getElementById('totalOrderPrice').innerHTML = 'Tid i kø er tid spildt! \nSå tillykke med dine ' + cIL[i].Order.pop().length + ' timers sparet tid - det kommer til at blive alle pengene værd!';
-            }
         }
+    }
 }
 
 
+/*alert("Tak for din bestilling. Din bestilling er nu gemt.");
+    orderHistory.push(new order (customerInformationList[currentUser].cart, null, customerInformationList[currentUser]));
+    console.log(orderHistory);
+    console.log(shoppingCart);
+    customerInformationList[currentUser].order = orderHistory;
+    localStorage.setItem('order', JSON.stringify(customerInformationList[currentUser].order));
+    //document.location.reload(true);
+//KR: Reload siden bagefter (mest af alt så den eventuelle fejlmeddelelse nedenfor bliver slettet.
+//document.location.reload(true);
 
 
+}
+else{
+    document.getElementById ('sorry').innerHTML = "Forkert brugernavn. Prøv igen"
+}
 
-            /*alert("Tak for din bestilling. Din bestilling er nu gemt.");
-                orderHistory.push(new order (customerInformationList[currentUser].cart, null, customerInformationList[currentUser]));
-                console.log(orderHistory);
-                console.log(shoppingCart);
-                customerInformationList[currentUser].order = orderHistory;
-                localStorage.setItem('order', JSON.stringify(customerInformationList[currentUser].order));
-                //document.location.reload(true);
-            //KR: Reload siden bagefter (mest af alt så den eventuelle fejlmeddelelse nedenfor bliver slettet.
-            //document.location.reload(true);
-
-
-        }
-            else{
-                document.getElementById ('sorry').innerHTML = "Forkert brugernavn. Prøv igen"
-        }
-
-                 */
-
-
-
-
+     */
 
 
 /*
