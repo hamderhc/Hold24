@@ -1,10 +1,11 @@
-//Globale varibale som bliver brugt både i login og checklogin.
+/*LogIn css er lavet med inspiration fra denne video
+https://www.youtube.com/watch?v=WY4rvU4ImgE&fbclid=IwAR091kWsEG3n0Hj1O_rDSvPkaeSmqLoE_ZF-wt8WO8kYue2K9BXDnQniYqo */
+
+//Globale varibale som bliver brugt både i login, storeInformationLogIn og checklogin.
 var userInput = document.getElementById('myUsername'); /*Henter data fra html brugernavn boks.*/
 var passwo = document.getElementById('pwd'); /*Henter data fra html kodeord boks.*/
 var getErrorMessage = document.getElementById('error_message');
 var text;
-
-// Ovenstående er rykket ud af scopet så de kan bruges til checkLogin, validateUser.
 
 class Costumer {
     constructor(firstName, password, Cart, Order, email) {
@@ -17,7 +18,6 @@ class Costumer {
 
     /*Opretter funktion til at logge ind med allerede oprettede brugere*/
     static login() {
-
         /*Når du logger ind tjekker den om brugernavn eksisterer og om password er korrekt.*/
             for (var i = 0; i < listCustomers.length; i++) {
             //Hvis brugernavnet(fornavnet) og kodeordet er defineret i listcostumers bliver man logget ind
@@ -28,59 +28,12 @@ class Costumer {
                 return;
 
             }
-            i++;
-            /*
-            KR: Vi har prøvet at lave en "du har x antal forsøg tilbage" hvor den så til sidst gør, så man ikke kan skrive
-            i felterne for brugernavn og kodeord eller trykke på log ind knappen, hvis man har brugt alle sine forsøg.
-            Dog kan vi ikke få det til at fungere, da vi bruger en event.preventDefault(), så siden ikke bliver reloaded.
-            Dermed tæller vores attemp variabel ikke ned, da den er forbundet til, når man trykker på knappen log ind.
-            Vi har prøvet at flytte dette rundt, men det virker ikke...
-            Hvis vi ville ordne det ville det nok kræve, at vi fjernede vores preventDefault og fandt på en anden løsning
-            til vores problem med, at siden reloader og man derfor ikke kan se øverst oppe, hvad man har gjort forkert
-            (forkert brugernavn, kodeord eller begge).
-
-
-
-
-            var triesLeft = document.getElementById('triesLeft');
-            var text2;
-
-
-            // KR: Den følgende variable definerer antal loginforsøg.
-            // https://www.formget.com/javascript-login-form/
-            let attempt = 4;
-
-            else {
-                //KR: Hvis man skriver forkert brugernavn og/eller kodeord, vil der blive fjernet et loginforsøg.
-                attempt--;
-                if (attempt > 0) {
-                    text2 = `Du har ${attempt} forsøg tilbage`;
-                    triesLeft.innerHTML = text2;
-                    return;
-                }
-                // Hvis man har 0 forsøg tilbage vil boksene forsvinde.
-                if (attempt == 0) {
-                    document.getElementById("brugernavn").disabled = true;
-                    document.getElementById("kodeord").disabled = true;
-                    document.getElementById("login").disabled = true;
-
-                    text2 = 'Du har brugt alle dine forsøg, desvære';
-                    triesLeft.innerHTML = text2;
-                    return;
-                }
-            }
-
-
-             */
-
-
-
         }
         this.checkLogin();
     }
 
     //SNL: Funktion som skal gemme, hvilken user der er logget ind.
-    /*SNL: Vi opretter et array som vi pusher vores objekt storeUser ind i. Herefter laver vi et for loop som looper gennem vores listCostumers array
+    /*SNL: Vi opretter et array som vi pusher vores objekt storeUser ind i. Herefter laver vi et for loop som looper gennem vores listCustomers array
     og tjekker om det der er logget ind er ens med en af de allerede oprettede brugere (firstname). Det samme gør vi med nye registrerede
     brugere (username). Hvis det findes skal den pushe informationen til vores tomme array storeLogIn og herefter skal det pushes til localstorage.*/
     static storeLogInInformation() {
@@ -123,29 +76,17 @@ class Costumer {
         getErrorMessage.innerHTML = text;
         return;
     }
-    /*Opretter en funktion til at oprette nye brugere*/
+    /*SNL: Opretter en funktion til at oprette nye brugere*/
     static registerNewUser() {
-        //firstName, password, cart, order, email
-        //SNL: før oprettede vi nye objekter til at oprette en ny bruger, men vu bruger nu istedet vores klasse til dette, derfor hedder nye oprettede
-        //brugere stadig firstname i localStorage.
+        /*SNL: før oprettede vi nye objekter til at oprette en ny bruger, men vi bruger nu istedet vores klasse til dette, derfor hedder de nye oprettede
+        brugere stadig firstname i localStorage.*/
         var username = document.getElementById('newUser').value;
         var pwd = document.getElementById('newPwd').value;
         var information = new Costumer(username, pwd, null, null, null);
-        /*Opretter variable til boksene i html*/
-        // var registerNewUser = document.getElementById('newUser').value;
 
-        //IMPLEMENT NEW CUSTOMER
-        /* var information = {
-              username: document.getElementById('newUser').value,
-              email: document.getElementById('newEmail').value,
-              pwd: document.getElementById('newPwd').value,
-              verifyPwd: document.getElementById('verifyNewPwd').value - vi benyttede slet ikke denne. da vi oprettede en ny variabel i validateUser til
-              valideringen af password.
-          };*/
-
-        //Hvis funktionen validateUser returnerer en fejl vil der ikke blive oprettet en ny bruger.
-        //Men er der ingen fejl vil den pushe vores information ind i vores tomme array øverst.
-        //Objekterne i det tomme array
+        //SNL: Hvis funktionen validateUser returnerer en fejl vil der ikke blive oprettet en ny bruger.
+        //SNL: Men er der ingen fejl vil den pushe vores information ind i vores tomme array listCustomers.
+        //SNL: Disse bliver så sat i localStorage.
         if (this.validateUser() == false) {
             return;
         } else {
@@ -156,14 +97,12 @@ class Costumer {
 
         }
     }
-    //SNL: Funktion til at validere de forskellige felter.
+    //SNL: Funktion til at validere de forskellige inputfelter.
     static validateUser() {
         var registerNewUser = document.getElementById("newUser").value;
         var registerNewEmail = document.getElementById("newEmail").value;
         var registerNewPwd = document.getElementById('newPwd').value;
         var verifyNewPassword = document.getElementById('verifyNewPwd').value;
-        //var getErrorMessage = document.getElementById('error_message');
-        //var text;
 
         getErrorMessage.style.padding = "10px"; //SNL: Stylingen på errorMessage som kommer til at være i toppen af login og registrer.
 
@@ -175,7 +114,7 @@ class Costumer {
             return false;
         }
 
-        //SNL: Brugernavnet må ikke udelukkende bestå af mellemrum. Trim() betyder ingen mellemrum
+        //SNL: Brugernavnet må ikke udelukkende bestå af mellemrum. Trim() er en metode der fjerner alle mellemrum.
         if (registerNewUser.trim() == "") {
             text = "Brugernavnet kan ikke udelukkende bestå af mellemrum."
             getErrorMessage.innerHTML = text;
@@ -198,7 +137,7 @@ class Costumer {
         // dotpos + 2 >= registerNewEmail.length (must be characters after . eg .com)
             //KR: https://github.com/mwndigi/exercise_7/blob/master/userRegistration.js
 
-                  var atAmount2 = registerNewEmail.valueOf("@");
+            var atAmount2 = registerNewEmail.valueOf("@");
 
             // Variable that collects the index number of @/at in the email
             var atpos = registerNewEmail.indexOf("@");
@@ -212,13 +151,9 @@ class Costumer {
                 console.log(getErrorMessage.innerHTML);
                 console.log(registerNewEmail.valueOf());
                 return false;
-                /*
-                += "Den indtastede email skal være gyldig \n";
-                = false;
-                 */
             }
 
-        //SNL: If statement som tjekker længden på kodeordet. Hvis det er under eller lig 8 karakterer sender den errormessage.
+        //SNL: If statement som tjekker længden på kodeordet. Hvis det er under 8 karakterer sender den errormessage.
         if (registerNewPwd.length < 8) {
             text = "Kodeordet skal være på minimum 8 karakterer";
             getErrorMessage.innerHTML = text;
@@ -239,27 +174,27 @@ class Costumer {
 /*SNL: Vi laver en variabel for alle costumers. Vi skal hente alt der ligger i localStorage i vores "boks" listcostumers costumerInformationList.
        JSON.parse() gør at den bliver hentet som et array */
 var listCustomers = JSON.parse(localStorage.getItem('customerInformationList'));
-//var listCustomers = JSON.parse(localStorage.getItem('customerInformationList')) || [];
 console.log(listCustomers);
 
+/*SNL: Det samme sker med vores currentLoggedInUser*/
 var storeLogIn = JSON.parse(localStorage.getItem('currentLoggedInUser'));
 
-/*Gør at errormessage bliver stående på siden og ikke forsvinder før man reloader.*/
+/*SNL: Gør at errormessage bliver stående på siden og ikke forsvinder før man reloader.*/
 addEventListener("submit", function(event){
     event.preventDefault();
 });
 
 /*SNL: Opretter en funktion til første gang der logges ind. If statement, som tjekker om listcostumers er tomt.
-  Hvis den er det, skal den lave den til et tomt array, hvor de faste brugere bliver pushet ind i.
+  Hvis den er det, skal den oprette et tomt array, hvor de faste brugere bliver pushet ind i.
   Vi blev nødt til at oprette denne funktion, da der inden blev oprettet dobbelt med brugere i localstorage hver gang man oprettede en ny bruger.*/
 function firstAccess() {
     if (listCustomers == null) {
         listCustomers = [];
-        //Opretter nye faste bruger som altid kan logge ind.
-        listCustomers.push(new Costumer("Stine", "123456789", null, null, null));
-        listCustomers.push(new Costumer("Rama", "111111111", null, null, null));
-        listCustomers.push(new Costumer("Jonathan", "999999999", null, null, null));
-        /*Vi opretter en "boks" i localstorage som hedder listcostumers som har "nøglen" til at komme ind i boksen - "customerInformationList"
+        //SNL: Opretter nye faste bruger som altid kan logge ind.
+        listCustomers.push(new Costumer("Stine", "123456789", null, null, 'stine@email.dk'));
+        listCustomers.push(new Costumer("Rama", "111111111", null, null, 'Rama@email.dk'));
+        listCustomers.push(new Costumer("Jonathan", "999999999", null, null, 'jonathan@email.dk'));
+        /*SNL: Vi opretter en "boks" i localstorage som hedder listcostumers som har "nøglen" til at komme ind i boksen - "customerInformationList"
          - herefter siger vi at alle costumers skal laves om fra et array til en string når de sendes til localstorage.*/
         localStorage.setItem('customerInformationList', JSON.stringify(listCustomers));
         console.log(listCustomers)
@@ -268,29 +203,8 @@ function firstAccess() {
 //Kalder funktionen så den bliver brugt.
 firstAccess();
 
-/* KR: Nu vil vi lave funktionen "hidePwd", der bliver aktiveret, når man trykker på checkboksen.
-Dermed siger vi, at "if" kodeordets type er et 'password', så skal det laves om til typen 'text'. "else" vil kodeordet
-laves om tilbage til typen "password".
-Reference: https://www.geeksforgeeks.org/show-hide-password-using-javascript/
-
-Første gang vi prøvede at tilføje denne, gav det os et problem. Når man trykkede på checkboksen, blev funktionen nedenfor
-udført, men checkboksen blev ikke trykket ned. Først mistænkte vi, at det havde noget med scopet at gøre. Derfor flyttede
-vi funktionen ind nederst i vores customer class. Dette fik checkboksen til at kunne blive trykket ned, men så virkede
-funktionen ikke. Dette gav anledning til at tænke over, hvorfor dette var muligt. Vi mistænkte, at det havde noget at
-gøre med eventlisteneren, da denne ikke ændre noget inde i scopet for vores class.
-
-Defor kiggede vi nærmere på eventlisteneren og så dermed hurtigt, at den "lytter" efter typen "click" på daværende tidspunkt.
-Ved at kigge hurtigt på HTML'en kunne vi se, at både vores checkboks og vores to "submit" knapper alle tre har en funktion,
-der kører "onclick".
-
-Derfor startede vi ud med at prøve på at ville lave en stopPropagation(). (Fortæl og analysér dette)
-
-Efter lidt hurtigt code review fandt vi dog ud af, det ville spare kode, hvis vi bare fik eventlisteneren til at "lytte"
-efter typen "submit" i stedet. På denne måde ville de to knappers default (reloade siden) stadig blive preventet, mens
-det ikke ville gå ud over vores nye checkboks.
-
- */
-
+//KR: Vi opretter en funktion som tjekker om typen af pwd er præcis typen password.
+//KR: Hvis det er tilfældet skal typen laves om til tekst ellers skal typen blive ved med at være password.
 function hidePwd() {
     var a = document.getElementById("pwd");
     if (a.type === "password") {
@@ -300,5 +214,7 @@ function hidePwd() {
         a.type = "password";
     }
 }
+
+
 
 
