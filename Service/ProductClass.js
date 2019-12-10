@@ -17,11 +17,11 @@ var cartTotalPrice;
 
 //Vi deklarerer currentUser til at være en tom string.
 var currentUser = "";
-//For at tjekke, at brugeren er logget ind hentes customerInformationList ned fra localStorage.
+//Vi henter customerInformationList ned fra localStorage i en variabel, 'customerInformationList'.
 var customerInformationList = JSON.parse(localStorage.getItem("customerInformationList"));
 //Vi tester for at se om vi kan finde 'firstName' for den 0. værdi af customerInformationList.
 console.log(customerInformationList[0].firstName);
-//For at tjekke, at brugeren er logget ind hentes currentLoggedInUser ned fra localStorage.
+//Vi henter også currentLoggedInUser ned fra localStorage i en variabel, 'currentLoggedInUser'.
 var currentLoggedInUser = JSON.parse(localStorage.getItem("currentLoggedInUser"));
 
 //funktion checkCurrentUser oprettes til at loope igennem længden af costumerInformationList og finder,

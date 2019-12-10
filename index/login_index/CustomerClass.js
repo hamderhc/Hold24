@@ -24,7 +24,7 @@ class Costumer {
             if (userInput.value == listCustomers[i].firstName && passwo.value == listCustomers[i].password) {
                 //    alert("You have been logged in as " + userInput)
                 console.log("Du er logget på som " + userInput);
-                document.location.href='../../festival/festival.html';
+                document.location.href='../../Service/Service.html';
                 return;
 
             }
