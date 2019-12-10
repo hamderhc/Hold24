@@ -19,22 +19,13 @@
     <nav>
         <ul>
             <li> <a href="../index/login_index/login.html">Logud</a></li>
-
-            <!-- <form class="search-box">
-                <input class="search-txt" type="text" name="" placeholder="Type to search">
-                <a class="search-btn" href="#">
-                    søgeknap:
-                    <i class="fas fa-search"></i>
-                </a>
-            </form>
-            -->
         </ul>
     </nav>
 </div>
 <div id="festival">
     <h1>Linestanders</h1>
 </div>
-
+<!--table til produkter-->
 <table cellpadding="4" cellspacing="4" border="1" width="100%">
     <tr>
         <td valign="top">
@@ -49,11 +40,6 @@
                 <tr>
                     <td>
                         <img src="../billeder/Linestander1.png" alt="#" class="lsIMG">
-                        <!---<input class="quantityClass" type="text" value="" id="qJosef"/> -->
-                        <!--input type="button" value="Add to cart" id="josefBtn" onclick="Cart.AddtoCart()"/-->
-
-                        <!--<input type="button" value="Slet" onclick="removeAll()">-->
-                        <!--<input type="button" value="Remove All" onclick="removeAll()">-->
                         <div class="container">
                             <p>Josef</p>
                             <p>Århus</p>
@@ -66,10 +52,6 @@
                     <td>
                         <img src="../billeder/Linestander2.png" alt="#" class="lsIMG">
                         <br>
-
-                        <!--<input type="button" value="Slet" onclick="removeAll()">-->
-                        <!--input class="buttons" type="button" value="Add to cart" id="hannaBtn" onclick="Cart.AddtoCart()"/-->
-                        <!--<input type="button" value="Remove All" onclick="removeAll()">-->
                         <div class="container">
                             <p>Hanna</p>
                             <p>Odense</p>
@@ -82,9 +64,6 @@
                     <td>
                         <img src="../billeder/Linestander3.png" alt="#" class="lsIMG">
                         <br>
-                       <!-- <input type="button" value="Slet" onclick="removeAll()">-->
-                        <!--input class="buttons" type="button" value="Add to cart" id="OliverBtn" onclick="Cart.AddtoCart()"/-->
-                        <!--<input type="button" value="Remove All" onclick="removeAll()">-->
                         <div class="container">
                             <p>Oliver</p>
                             <p>København</p>
@@ -94,10 +73,10 @@
                     </td>
                 </tr>
                 </tbody>
-
             </table>
         </td>
         <td valign="top">
+       <!--table, som viser de forskellige værdier for de produkter, som vælges. -->
             <table cellpadding="4" cellspacing="4" border="1" id="orderedProductsTbl">
                 <thead>
                 <tr>
@@ -112,6 +91,7 @@
                     </td>
                 </tr>
                 </thead>
+                <!--table, som produkter bliver lagt ind i, når de vælges.-->
                 <tbody id="orderedProductsTblBody">
 
                 </tbody>
@@ -119,12 +99,13 @@
                 <tr>
                     <td colspan="3" align="right" id="cartTotal">
                     </td>
+                    <!-- knap til at gå videre til order.html. -->
                     <td>
-                        <!--<a href="order.html"><input type="submit" class="addToCartBTN" value="Gå til kurv" onsubmit=""></a> -->
                         <a href="order.html"><button class="kurv" style="font-size:24px; color: indianred"><i class="fa fa-shopping-cart"></i></button></a>
                     </td>
                 </tr>
                 <tr>
+                    <!-- knap til at slette alle produkter -->
                     <input type="button" value="Slet" onclick="removeAll()">
                 </tr>
                 </tfoot>
@@ -132,11 +113,9 @@
         </td>
     </tr>
 </table>
-
-</body>
-
-<!-- Javascript link tag, er sat i bunden, så den loader HTML før JS. -->
+<!-- JS placeret sidst, for at den loader html før JS, det er nødvendigt her, da JS bruger html table. -->
 <script src="ClassProduct.js"></script>
 <script src="../index/login_index/ClassCostumer.js"></script>
 <script src="CartClass.js"></script>
+</body>
 </html>
