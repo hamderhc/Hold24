@@ -1,27 +1,18 @@
+// Vi opretter en klasse med constructoren
 class Order {
-    constructor(Cart, orderTotalPrice, currentLoggedInUser) {
-        this.Cart = Cart; //array med alle produktene kunden har bestilt
-        this.orderTotalPrice = orderTotalPrice;
-        this.currentLoggedInUser = currentLoggedInUser;
+    constructor(Cart, Price) {
+        this.Cart = Cart;
+        this.Price = Price;
     }
 }
 
+//Vi laver et tomt array til at holde ordrehistorikken.
 var orderHistory = [];
 
-
+//
 let cIL = JSON.parse(localStorage.getItem("customerInformationList"));
 let cLIU = JSON.parse(localStorage.getItem("currentLoggedInUser"));
 
-//vi bruger samme metode som ved checkCurrentUser():
-/*
-let CU = "";
-for (u = 0; u < cIL.length; u++) {
-    if (cIL[u].firstName == cLIU[0].usernameLoggedin) {
-        CU = u
-    }
-}
-
- */
 checkCurrentUser();
 console.log(currentUser);
 

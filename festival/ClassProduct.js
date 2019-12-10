@@ -17,9 +17,11 @@ var cartTotalPrice;
 
 //Vi deklarerer currentUser til at være en tom string.
 var currentUser = "";
-//For at tjekke, at brugeren er logget ind hentes customerInformationList og currentLoggedInUser ned fra localStorage.
-var customerInformationList = JSON.parse(localStorage.getItem("customerInformationList"))
-console.log(customerInformationList[0].firstName)
+//For at tjekke, at brugeren er logget ind hentes customerInformationList ned fra localStorage.
+var customerInformationList = JSON.parse(localStorage.getItem("customerInformationList"));
+//Vi tester for at se om vi kan finde 'firstName' for den 0. værdi af customerInformationList.
+console.log(customerInformationList[0].firstName);
+//For at tjekke, at brugeren er logget ind hentes currentLoggedInUser ned fra localStorage.
 var currentLoggedInUser = JSON.parse(localStorage.getItem("currentLoggedInUser"));
 
 //funktion checkCurrentUser oprettes til at loope igennem længden af costumerInformationList og finder,
@@ -43,7 +45,7 @@ console.log(currentUser);
 if (customerInformationList[currentUser].Cart == null) {
     shoppingCart = [];
 } else {
-    shoppingCart = customerInformationList[currentUser].Cart
+    shoppingCart = customerInformationList[currentUser].Cart;
 }
 
 //Vi laver en klasse, som indeholder attributterne navn, lokation, og pris for alle produkterne. (JM)
