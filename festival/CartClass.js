@@ -1,3 +1,4 @@
+// Vi opretter klassen Cart med constructer shoppingcCart og CartTotalPrice.
 class Cart {
     constructor(shoppingCart, cartTotalPrice) {
         this.shoppingCart = shoppingCart;
@@ -6,13 +7,8 @@ class Cart {
 }
 
 
-// vi laver en funktion, som skal vise de valgte produkter i tabellen. (JM)
-/* Denne funktion gør at de valgte produkter vises i tabellen. Det specificeres ved at variabel orderedProductsTblBody
-lægger elementerne i Id'et "orderedProductsTblBody" i HTML (HCA)
- */
+// Vi genbruger metoden fra Product Class, herunder displayShoppingCart.
 function showCart() {
-
-
     var orderedProductsTblBody = document.getElementById("orderedProductsTblBody");
 
     // console.log(orderedProductsTblBody1);
@@ -20,7 +16,6 @@ function showCart() {
     while (orderedProductsTblBody.rows.length > 0) {
         orderedProductsTblBody.deleteRow(0);
     }
-
 
     //Variabel for prisen, som sættes til 0 (startpris). (JM)
     //Variabel som sætter startprisen til 0 (HCA)
@@ -48,14 +43,13 @@ function showCart() {
         cellPrice.align = "right";
 
 
-        // Produkternes værdier i arrayet shoppingCart hentes med innerHTML. (JM)
+        // Produkternes værdier i arrayet shoppingCart bliver sat ind i HTML med innerHTML på produktet i Shoppingcart.
         /*Her bliver det bestemt hvad de celler der blev lavet skal indeholde. Det gøres med innerHTML, hvilket vil
         sige at værdierne hentes fra deres input i HTML. (!OBS formulering) (HCA)
          */
         cellName.innerHTML = shoppingCart[Product].name;
         cellLocation.innerHTML = shoppingCart[Product].location;
         cellPrice.innerHTML = shoppingCart[Product].price;
-        //cellQuantity.innerHTML = shoppingCart[Product].quantity;
         /* Den totale pris udregnes ved at variablen cartTotalPrice,
         som er nul får prisen for de produkter, som er i shoppingCart lagt oveni (JM)
          */
@@ -68,59 +62,3 @@ function showCart() {
     }
 }
 
-/*
-
-//husk quantity objekt på product class
-
-function newCartObject (){
-    new Cart(shoppingCart, cartTotalPrice)
-}
-
-function final() {
-    //document.getElementById('fuckingFinal').innerHTML = seFProduct;
-    alert("Du har nu købt");
-    let sum = 0;
-    for (i = 0; i < shoppingCart.length; i++){
-        sum += shoppingCart;
-    }
-    document.getElementById('freakingFinal').innerHTML = sum;
-}
-
- */
-
-
-// Skal linkes til CurentUser
-
-/*
-for(i=0; i < Costumer.storeLogInInformation(); i++){
-    Costumer[i].Cart == newCartObject();
-}*/
-
-
-/*Save to localStorage
-var shoppingCartString = JSON.stringify(shoppingCart[Product]);
-localStorage.setItem(Cart, shoppingCartString);
-
-var totalPriceString = JSON.stringify(cartTotalPrice);
-localStorage.setItem(Cart, totalPriceString);
- */
-
-
-/*
-function confirmBtn() {
-    var txt;
-    if(confirm("Er du din ordre korrekt?")){
-        txt = "Din ordre er bestilt!";
-    } else {
-        txt = "Din ordre er annuleret!";
-    }
-    document.getElementById("confirmTxt").innerText = txt;
-}
-
- */
-
-
-/*
-Vi mangler at tilføje vores property, cartTotalPrice til localStorage for vores Cart-class. Mikkel kan måske hjælpe med dette?
-Hvis ikke, reflekter over, hvad der går galt, hvorfor og hvad man kunne gøre af alternativer for at få det til at virke.
- */
